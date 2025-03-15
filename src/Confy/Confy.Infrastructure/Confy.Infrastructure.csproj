@@ -1,14 +1,14 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Confy.Application\Confy.Application.csproj" />
-    <ProjectReference Include="..\Confy.Infrastructure\Confy.Infrastructure.csproj" />
+    <ProjectReference Include="..\Confy.Domain\Confy.Domain.csproj" />
   </ItemGroup>
 
 </Project>

@@ -7,6 +7,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Confy", "Confy", "{3BDF06CD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Confy.API", "Confy\Confy.API\Confy.API.csproj", "{2AA58975-5702-44B6-852F-27385E115F11}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Confy.Domain", "Confy\Confy.Domain\Confy.Domain.csproj", "{171121BF-E93A-4DEA-9A9B-AAD47F3B9313}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Confy.Application", "Confy\Confy.Application\Confy.Application.csproj", "{B9DCF6F3-4906-413D-9E15-1A7E67CE1C24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Confy.Infrastructure", "Confy\Confy.Infrastructure\Confy.Infrastructure.csproj", "{484394FA-1850-4085-9F34-E0ABFA0603B7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,11 +23,26 @@ Global
 		{2AA58975-5702-44B6-852F-27385E115F11}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2AA58975-5702-44B6-852F-27385E115F11}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2AA58975-5702-44B6-852F-27385E115F11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{171121BF-E93A-4DEA-9A9B-AAD47F3B9313}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{171121BF-E93A-4DEA-9A9B-AAD47F3B9313}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{171121BF-E93A-4DEA-9A9B-AAD47F3B9313}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{171121BF-E93A-4DEA-9A9B-AAD47F3B9313}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9DCF6F3-4906-413D-9E15-1A7E67CE1C24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9DCF6F3-4906-413D-9E15-1A7E67CE1C24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9DCF6F3-4906-413D-9E15-1A7E67CE1C24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9DCF6F3-4906-413D-9E15-1A7E67CE1C24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{484394FA-1850-4085-9F34-E0ABFA0603B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{484394FA-1850-4085-9F34-E0ABFA0603B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{484394FA-1850-4085-9F34-E0ABFA0603B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{484394FA-1850-4085-9F34-E0ABFA0603B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{2AA58975-5702-44B6-852F-27385E115F11} = {3BDF06CD-5CD0-47A8-B6F6-4FEE1371C235}
+		{171121BF-E93A-4DEA-9A9B-AAD47F3B9313} = {3BDF06CD-5CD0-47A8-B6F6-4FEE1371C235}
+		{B9DCF6F3-4906-413D-9E15-1A7E67CE1C24} = {3BDF06CD-5CD0-47A8-B6F6-4FEE1371C235}
+		{484394FA-1850-4085-9F34-E0ABFA0603B7} = {3BDF06CD-5CD0-47A8-B6F6-4FEE1371C235}
 	EndGlobalSection
 EndGlobal
