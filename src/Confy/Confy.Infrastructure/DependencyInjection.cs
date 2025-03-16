@@ -1,5 +1,8 @@
-﻿using Confy.Infrastructure.Data;
+﻿using Confy.Application.Data;
+using Confy.Domain.Authentication;
+using Confy.Infrastructure.Data;
 using Confy.Infrastructure.Interceptors;
+using Confy.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
@@ -13,14 +16,31 @@ public static class DependencyInjection
 	{
 		var connectionString = configuration.GetConnectionString("Database");
 
-		services.AddScoped<ISaveChangesInterceptor, AuditableEntityInterceptor>();
-		services.AddScoped<ISaveChangesInterceptor, DispatchDomainEventsInterceptor>();
+		services.AddRepositories();
+		services.AddCustomInterceptors();
 
 		services.AddDbContext<ConfyDbContext>((sp, options) =>
 		{
 			options.AddInterceptors(sp.GetServices<ISaveChangesInterceptor>());
 			options.UseSqlServer(connectionString);
 		});
+
+		services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<ConfyDbContext>());
+
+		return services;
+	}
+
+	private static IServiceCollection AddRepositories(this IServiceCollection services)
+	{
+		services.AddScoped<IUserRepository, UserRepository>();
+
+		return services;
+	}
+
+	private static IServiceCollection AddCustomInterceptors(this IServiceCollection services)
+	{
+		services.AddScoped<ISaveChangesInterceptor, AuditableEntityInterceptor>();
+		services.AddScoped<ISaveChangesInterceptor, DispatchDomainEventsInterceptor>();
 
 		return services;
 	}

@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Confy.Application.Services;
+using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
 namespace Confy.Application;
@@ -10,6 +11,8 @@ public static class DependencyInjection
 		{
 			config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
 		});
+
+		services.AddScoped<ICustomAuthService, CustomAuthService>();
 
 		return services;
 	}
