@@ -1,7 +1,4 @@
-﻿using Confy.Domain.Abstractions;
-using Confy.Domain.Enums;
-
-namespace Confy.Domain.Authentication;
+﻿namespace Confy.Domain.Authentication;
 public class User : Entity
 {
 	public string Email { get; private set; } = string.Empty;
