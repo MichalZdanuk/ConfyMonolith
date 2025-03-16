@@ -1,6 +1,4 @@
 ﻿using Confy.Application.DTO.Authentication;
-using Confy.Application.Services;
-using MediatR;
 
 namespace Confy.Application.Commands.Authentication;
 public class LoginCommandHandler(ICustomAuthService customAuthService)

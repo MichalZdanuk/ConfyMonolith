@@ -1,4 +1,2 @@
-﻿using MediatR;
-
-namespace Confy.Application.Commands.Authentication;
+﻿namespace Confy.Application.Commands.Authentication;
 public record RegisterCommand(string Email, string Password) : IRequest;

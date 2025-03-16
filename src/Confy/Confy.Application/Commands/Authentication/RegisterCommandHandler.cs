@@ -1,7 +1,4 @@
-﻿using Confy.Application.Services;
-using MediatR;
-
-namespace Confy.Application.Commands.Authentication;
+﻿namespace Confy.Application.Commands.Authentication;
 public class RegisterCommandHandler(ICustomAuthService customAuthService)
 	: IRequestHandler<RegisterCommand>
 {
