@@ -1,3 +1,4 @@
+using Confy.API;
 using Confy.Application;
 using Confy.Infrastructure;
 
@@ -11,6 +12,11 @@ builder.Services
 builder.Services.AddControllers();
 
 var app = builder.Build();
+
+if (app.Environment.IsDevelopment())
+{
+	await app.InitialiseDatabaseAsync();
+}
 
 // Configure the HTTP request pipeline.
 
