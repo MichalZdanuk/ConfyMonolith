@@ -1,0 +1,9 @@
+services:
+  confydb:
+    image: mcr.microsoft.com/mssql/server
+
+  confy.api:
+    image: ${DOCKER_REGISTRY-}confyapi
+    build:
+      context: .
+      dockerfile: Confy/Confy.API/Dockerfile
