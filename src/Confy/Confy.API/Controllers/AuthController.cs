@@ -1,11 +1,9 @@
 using Confy.Application.Commands.Authentication;
 using Confy.Application.DTO.Authentication;
-using MediatR;
-using Microsoft.AspNetCore.Mvc;
 
 namespace Confy.API.Controllers
 {
-    [Route("auth")]
+	[Route("auth")]
     [ApiController]
     public class AuthController(IMediator mediator)
         : ControllerBase
