@@ -1,7 +1,4 @@
 ﻿using Confy.Domain.Authentication;
-using Confy.Infrastructure.Converters;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Microsoft.EntityFrameworkCore;
 
 namespace Confy.Infrastructure.Configurations;
 public class UserConfiguration : BaseEntityConfiguration<User>,

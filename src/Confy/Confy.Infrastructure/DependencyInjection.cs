@@ -1,11 +1,7 @@
 ﻿using Confy.Application.Data;
 using Confy.Domain.Authentication;
-using Confy.Infrastructure.Data;
 using Confy.Infrastructure.Interceptors;
 using Confy.Infrastructure.Repositories;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Diagnostics;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Confy.Infrastructure;

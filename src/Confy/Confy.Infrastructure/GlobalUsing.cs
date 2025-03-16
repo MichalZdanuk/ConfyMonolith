@@ -1,0 +1,9 @@
+﻿global using Microsoft.EntityFrameworkCore;
+global using Microsoft.EntityFrameworkCore.Metadata.Builders;
+global using Microsoft.EntityFrameworkCore.Diagnostics;
+global using Confy.Infrastructure.Converters;
+global using Confy.Infrastructure.Data;
+global using Confy.Domain.Enums;
+global using Confy.Domain.Abstractions;
+global using System.Reflection;
+global using Microsoft.Extensions.Configuration;

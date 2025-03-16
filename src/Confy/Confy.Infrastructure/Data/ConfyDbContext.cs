@@ -1,7 +1,5 @@
 ﻿using Confy.Application.Data;
 using Confy.Domain.Authentication;
-using Microsoft.EntityFrameworkCore;
-using System.Reflection;
 
 namespace Confy.Infrastructure.Data;
 public class ConfyDbContext

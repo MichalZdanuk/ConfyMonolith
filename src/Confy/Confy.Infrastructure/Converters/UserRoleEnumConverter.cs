@@ -1,5 +1,4 @@
-﻿using Confy.Domain.Enums;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+﻿using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Confy.Infrastructure.Converters;
 public class UserRoleEnumConverter

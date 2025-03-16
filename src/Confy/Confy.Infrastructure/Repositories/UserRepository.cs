@@ -1,6 +1,4 @@
 ﻿using Confy.Domain.Authentication;
-using Confy.Infrastructure.Data;
-using Microsoft.EntityFrameworkCore;
 
 namespace Confy.Infrastructure.Repositories;
 public class UserRepository : IUserRepository

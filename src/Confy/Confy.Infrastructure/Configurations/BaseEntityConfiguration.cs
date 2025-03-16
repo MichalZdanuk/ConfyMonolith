@@ -1,8 +1,4 @@
-﻿using Confy.Domain.Abstractions;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Microsoft.EntityFrameworkCore;
-
-namespace Confy.Infrastructure.Configurations;
+﻿namespace Confy.Infrastructure.Configurations;
 public class BaseEntityConfiguration<TEntity>
 	: IEntityTypeConfiguration<TEntity>
 	where TEntity : Entity

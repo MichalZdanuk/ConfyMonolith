@@ -1,7 +1,4 @@
-﻿using Confy.Domain.Abstractions;
-using MediatR;
-using Microsoft.EntityFrameworkCore.Diagnostics;
-using Microsoft.EntityFrameworkCore;
+﻿using MediatR;
 
 namespace Confy.Infrastructure.Interceptors;
 public class DispatchDomainEventsInterceptor(IMediator mediator)

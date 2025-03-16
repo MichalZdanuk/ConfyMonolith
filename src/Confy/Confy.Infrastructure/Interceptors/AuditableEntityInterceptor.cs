@@ -1,7 +1,4 @@
-﻿using Confy.Domain.Abstractions;
-using Microsoft.EntityFrameworkCore.ChangeTracking;
-using Microsoft.EntityFrameworkCore.Diagnostics;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace Confy.Infrastructure.Interceptors;
 public class AuditableEntityInterceptor : SaveChangesInterceptor
