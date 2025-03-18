@@ -3,7 +3,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services
 	.AddApplication()
-	.AddInfrastructure(builder.Configuration);
+	.AddInfrastructure(builder.Configuration)
+	.AddApiServices(builder.Configuration);
 
 builder.Services.AddControllers();
 
@@ -16,7 +17,9 @@ if (app.Environment.IsDevelopment())
 
 // Configure the HTTP request pipeline.
 
+app.UseAuthentication();
 app.UseAuthorization();
+app.UseApiServices();
 
 app.MapControllers();
 
