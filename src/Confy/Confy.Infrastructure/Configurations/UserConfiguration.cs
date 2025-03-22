@@ -13,6 +13,9 @@ public class UserConfiguration : BaseEntityConfiguration<User>,
 		builder.Property(u => u.Email)
 			.IsRequired();
 
+		builder.Property(u => u.Bio)
+			.IsRequired(false);
+
 		builder.Property(u => u.PasswordHash)
 			.IsRequired();
 

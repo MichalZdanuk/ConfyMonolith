@@ -1,6 +1,7 @@
 ﻿using Confy.Application.Data;
 using Confy.Application.Exceptions.Authentication;
 using Confy.Domain.Authentication;
+using Confy.Domain.Enums;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -13,14 +14,14 @@ public class CustomAuthService(IApplicationDbContext dbContext,
 	IConfiguration configuration)
 	: ICustomAuthService
 {
-	public async Task Register(string email, string password)
+	public async Task Register(string email, string password, UserRole userRole, string? bio = null)
 	{
 		if (await userRepository.UserExists(email))
 		{
 			throw new EmailAlreadyTakenException(email);
 		}
 
-		var user = User.Create(email, BCrypt.Net.BCrypt.HashPassword(password));
+		var user = User.Create(email, BCrypt.Net.BCrypt.HashPassword(password), userRole, bio);
 
 		await userRepository.AddUser(user);
 		await dbContext.SaveChangesAsync();

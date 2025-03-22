@@ -1,6 +1,8 @@
-﻿namespace Confy.Application.Services;
+﻿using Confy.Domain.Enums;
+
+namespace Confy.Application.Services;
 public interface ICustomAuthService
 {
-	public Task Register(string email, string password);
+	public Task Register(string email, string password, UserRole userRole, string? bio = null);
 	public Task<string> Login(string email, string password);
 }

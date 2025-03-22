@@ -1,2 +1,4 @@
-﻿namespace Confy.Application.Commands.Authentication;
-public record RegisterCommand(string Email, string Password) : ICommand;
+﻿using Confy.Domain.Enums;
+
+namespace Confy.Application.Commands.Authentication;
+public record RegisterCommand(string Email, string Password, UserRole UserRole = UserRole.Attendee) : ICommand;
