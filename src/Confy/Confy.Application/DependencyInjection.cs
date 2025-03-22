@@ -1,4 +1,4 @@
-﻿using Confy.Application.Services;
+﻿using Confy.Application.Behaviors;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
@@ -10,6 +10,7 @@ public static class DependencyInjection
 		services.AddMediatR(config =>
 		{
 			config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
+			config.AddOpenBehavior(typeof(LoggingBehavior<,>));
 		});
 
 		services.AddScoped<ICustomAuthService, CustomAuthService>();
