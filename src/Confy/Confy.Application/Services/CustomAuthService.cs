@@ -1,5 +1,4 @@
-﻿using Confy.Application.Data;
-using Confy.Application.Exceptions.Authentication;
+﻿using Confy.Application.Exceptions.Authentication;
 using Confy.Domain.Authentication;
 using Confy.Domain.Enums;
 using Microsoft.Extensions.Configuration;
@@ -9,8 +8,7 @@ using System.Security.Claims;
 using System.Text;
 
 namespace Confy.Application.Services;
-public class CustomAuthService(IApplicationDbContext dbContext,
-	IUserRepository userRepository,
+public class CustomAuthService(IUserRepository userRepository,
 	IConfiguration configuration)
 	: ICustomAuthService
 {
@@ -24,7 +22,6 @@ public class CustomAuthService(IApplicationDbContext dbContext,
 		var user = User.Create(email, BCrypt.Net.BCrypt.HashPassword(password), userRole, bio);
 
 		await userRepository.AddUser(user);
-		await dbContext.SaveChangesAsync();
 	}
 
 	public async Task<string> Login(string email, string password)

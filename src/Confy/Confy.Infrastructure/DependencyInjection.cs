@@ -1,7 +1,7 @@
-﻿using Confy.Application.Data;
-using Confy.Domain.Authentication;
+﻿using Confy.Domain.Authentication;
 using Confy.Infrastructure.Interceptors;
 using Confy.Infrastructure.Repositories;
+using Confy.Shared.UnitOfWork;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Confy.Infrastructure;
@@ -21,7 +21,7 @@ public static class DependencyInjection
 			options.UseSqlServer(connectionString);
 		});
 
-		services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<ConfyDbContext>());
+		services.AddScoped<IUnitOfWork, ConfyUnitOfWork>();
 
 		return services;
 	}

@@ -11,6 +11,7 @@ public static class DependencyInjection
 		{
 			config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
 			config.AddOpenBehavior(typeof(LoggingBehavior<,>));
+			config.AddOpenBehavior(typeof(TransactionalPipelineBehavior<,>));
 		});
 
 		services.AddScoped<ICustomAuthService, CustomAuthService>();

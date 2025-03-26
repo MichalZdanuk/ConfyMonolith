@@ -1,9 +1,8 @@
-﻿using Confy.Application.Data;
-using Confy.Domain.Authentication;
+﻿using Confy.Domain.Authentication;
 
 namespace Confy.Infrastructure.Data;
 public class ConfyDbContext
-	: DbContext, IApplicationDbContext
+	: DbContext
 {
 	private string schema = "confy";
 
@@ -13,11 +12,6 @@ public class ConfyDbContext
 	}
 
 	public DbSet<User> Users { get; set; }
-
-	public async Task<int> SaveChangesAsync()
-	{
-		return await base.SaveChangesAsync();
-	}
 
 	protected override void OnModelCreating(ModelBuilder modelBuilder)
 	{

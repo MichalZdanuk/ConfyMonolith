@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Confy.LoadTests", "LoadTest
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{A62F3618-7A44-444F-8C3B-C1672D65FD20}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Confy.Shared", "Confy\Confy.Shared\Confy.Shared.csproj", "{D8B847A5-5F88-4319-95FE-0CF0AEA48C17}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,10 @@ Global
 		{A62F3618-7A44-444F-8C3B-C1672D65FD20}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A62F3618-7A44-444F-8C3B-C1672D65FD20}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A62F3618-7A44-444F-8C3B-C1672D65FD20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8B847A5-5F88-4319-95FE-0CF0AEA48C17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8B847A5-5F88-4319-95FE-0CF0AEA48C17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8B847A5-5F88-4319-95FE-0CF0AEA48C17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8B847A5-5F88-4319-95FE-0CF0AEA48C17}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -59,5 +65,6 @@ Global
 		{B9DCF6F3-4906-413D-9E15-1A7E67CE1C24} = {3BDF06CD-5CD0-47A8-B6F6-4FEE1371C235}
 		{484394FA-1850-4085-9F34-E0ABFA0603B7} = {3BDF06CD-5CD0-47A8-B6F6-4FEE1371C235}
 		{43A49EB7-C4DD-4842-B6FF-ECEBEBA62865} = {959C6D03-E9B9-46A1-A759-00AFC50746D6}
+		{D8B847A5-5F88-4319-95FE-0CF0AEA48C17} = {3BDF06CD-5CD0-47A8-B6F6-4FEE1371C235}
 	EndGlobalSection
 EndGlobal

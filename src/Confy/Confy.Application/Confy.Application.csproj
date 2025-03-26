@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Confy.Domain\Confy.Domain.csproj" />
+    <ProjectReference Include="..\Confy.Shared\Confy.Shared.csproj" />
   </ItemGroup>
 
 </Project>

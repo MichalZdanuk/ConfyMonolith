@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Confy.Application\Confy.Application.csproj" />
     <ProjectReference Include="..\Confy.Domain\Confy.Domain.csproj" />
+    <ProjectReference Include="..\Confy.Shared\Confy.Shared.csproj" />
   </ItemGroup>
 
   <ItemGroup>
