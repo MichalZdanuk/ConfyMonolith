@@ -1,4 +1,4 @@
-﻿using Confy.Domain.Authentication;
+﻿using Confy.Domain.Repositories.Authentication;
 using Confy.Infrastructure.Interceptors;
 using Confy.Infrastructure.Repositories;
 using Confy.Shared.UnitOfWork;

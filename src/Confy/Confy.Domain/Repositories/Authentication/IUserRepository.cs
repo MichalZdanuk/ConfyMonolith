@@ -1,4 +1,6 @@
-﻿namespace Confy.Domain.Authentication;
+﻿using Confy.Domain.Authentication;
+
+namespace Confy.Domain.Repositories.Authentication;
 public interface IUserRepository
 {
 	public Task<bool> UserExists(string email);

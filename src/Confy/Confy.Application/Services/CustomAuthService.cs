@@ -1,6 +1,7 @@
 ﻿using Confy.Application.Exceptions.Authentication;
 using Confy.Domain.Authentication;
 using Confy.Domain.Enums;
+using Confy.Domain.Repositories.Authentication;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
