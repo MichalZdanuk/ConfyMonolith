@@ -1,6 +1,8 @@
 ﻿using Confy.Domain.Repositories.Authentication;
+using Confy.Domain.Repositories.ConferenceManagement;
 using Confy.Infrastructure.Interceptors;
-using Confy.Infrastructure.Repositories;
+using Confy.Infrastructure.Repositories.Authentication;
+using Confy.Infrastructure.Repositories.ConferenceManagement;
 using Confy.Shared.UnitOfWork;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -29,6 +31,7 @@ public static class DependencyInjection
 	private static IServiceCollection AddRepositories(this IServiceCollection services)
 	{
 		services.AddScoped<IUserRepository, UserRepository>();
+		services.AddScoped<IPrelegentRepository, PrelegentRepository>();
 
 		return services;
 	}

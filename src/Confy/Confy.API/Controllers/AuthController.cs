@@ -18,7 +18,7 @@ namespace Confy.API.Controllers
 		[HttpPost("register")]
 		public async Task<ActionResult> Register([FromBody] RegisterDto dto)
 		{
-			var command = new RegisterCommand(dto.Email, dto.Password);
+			var command = new RegisterCommand(dto.FirstName, dto.LastName, dto.Email, dto.Password);
 
 			await mediator.Send(command);
 
@@ -35,6 +35,18 @@ namespace Confy.API.Controllers
 			var response = await mediator.Send(query);
 
 			return Ok(response);
+		}
+
+		[HttpPost("create")]
+		public async Task<ActionResult<Guid>> CreateUser([FromBody] CreateUserDto dto)
+		{
+			var command = new CreateUserCommand(dto.FirstName, dto.LastName, dto.Bio, dto.Email, dto.Password, dto.UserRole);
+
+			await mediator.Send(command);
+
+			var uri = $"/users/{command.Id}";
+
+			return Created(uri, new { Id = command.Id });
 		}
 	}
 }

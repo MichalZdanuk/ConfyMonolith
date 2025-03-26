@@ -1,7 +1,7 @@
 ﻿using Confy.Domain.Authentication;
 using Confy.Domain.Repositories.Authentication;
 
-namespace Confy.Infrastructure.Repositories;
+namespace Confy.Infrastructure.Repositories.Authentication;
 public class UserRepository : IUserRepository
 {
 	private readonly ConfyDbContext _context;

@@ -1,7 +1,10 @@
 ﻿using Confy.Application.Exceptions.Authentication;
 using Confy.Domain.Authentication;
+using Confy.Domain.Authentication.ValueObjects;
+using Confy.Domain.ConferenceManagement;
 using Confy.Domain.Enums;
 using Confy.Domain.Repositories.Authentication;
+using Confy.Domain.Repositories.ConferenceManagement;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -10,19 +13,38 @@ using System.Text;
 
 namespace Confy.Application.Services;
 public class CustomAuthService(IUserRepository userRepository,
+	IPrelegentRepository prelegentRepository,
 	IConfiguration configuration)
 	: ICustomAuthService
 {
-	public async Task Register(Guid id, string email, string password, UserRole userRole, string? bio = null)
+	public async Task<User> Register(Guid Id,
+		string FirstName,
+		string LastName,
+		string Email,
+		string Password,
+		UserRole UserRole,
+		string? Bio = null)
 	{
-		if (await userRepository.UserExists(email))
+		if (await userRepository.UserExists(Email))
 		{
-			throw new EmailAlreadyTakenException(email);
+			throw new EmailAlreadyTakenException(Email);
 		}
 
-		var user = User.Create(id, email, BCrypt.Net.BCrypt.HashPassword(password), userRole, bio);
+		var user = User.Create(Id,
+			Email,
+			BCrypt.Net.BCrypt.HashPassword(Password),
+			FullName.Of(FirstName, LastName),
+			UserRole,
+			Bio);
 
 		await userRepository.AddUser(user);
+
+		if (UserRole == UserRole.Prelegent)
+		{
+			await AddPrelegentEntity(user);
+		}
+
+		return user;
 	}
 
 	public async Task<string> Login(string email, string password)
@@ -55,5 +77,12 @@ public class CustomAuthService(IUserRepository userRepository,
 		);
 
 		return new JwtSecurityTokenHandler().WriteToken(token);
+	}
+
+	private async Task AddPrelegentEntity(User user)
+	{
+		var prelegent = Prelegent.Create(user.Id, string.Concat(user.FullName.FirstName, " ", user.FullName.LastName), user.Bio ?? string.Empty);
+	
+		await prelegentRepository.AddAsync(prelegent);
 	}
 }

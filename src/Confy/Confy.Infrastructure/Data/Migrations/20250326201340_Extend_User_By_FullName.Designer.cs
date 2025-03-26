@@ -5,6 +5,7 @@ using Confy.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -12,9 +13,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Confy.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(ConfyDbContext))]
-    partial class ConfyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250326201340_Extend_User_By_FullName")]
+    partial class Extend_User_By_FullName
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
