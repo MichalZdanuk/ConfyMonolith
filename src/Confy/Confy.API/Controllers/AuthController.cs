@@ -1,5 +1,6 @@
 using Confy.Application.Commands.Authentication;
 using Confy.Application.DTO.Authentication;
+using Confy.Application.Queries.Authentication;
 
 namespace Confy.API.Controllers
 {
@@ -29,9 +30,9 @@ namespace Confy.API.Controllers
 		[HttpPost("login")]
 		public async Task<ActionResult<LoginResponseDto>> Login([FromBody] LoginDto dto)
 		{
-			var command = new LoginCommand(dto.Email, dto.Password);
+			var query = new LoginQuery(dto.Email, dto.Password);
 
-			var response = await mediator.Send(command);
+			var response = await mediator.Send(query);
 
 			return Ok(response);
 		}
