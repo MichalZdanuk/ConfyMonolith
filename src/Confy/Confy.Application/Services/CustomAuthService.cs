@@ -12,14 +12,14 @@ public class CustomAuthService(IUserRepository userRepository,
 	IConfiguration configuration)
 	: ICustomAuthService
 {
-	public async Task Register(string email, string password, UserRole userRole, string? bio = null)
+	public async Task Register(Guid id, string email, string password, UserRole userRole, string? bio = null)
 	{
 		if (await userRepository.UserExists(email))
 		{
 			throw new EmailAlreadyTakenException(email);
 		}
 
-		var user = User.Create(email, BCrypt.Net.BCrypt.HashPassword(password), userRole, bio);
+		var user = User.Create(id, email, BCrypt.Net.BCrypt.HashPassword(password), userRole, bio);
 
 		await userRepository.AddUser(user);
 	}

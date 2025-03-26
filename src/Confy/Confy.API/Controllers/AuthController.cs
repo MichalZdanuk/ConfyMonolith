@@ -21,7 +21,9 @@ namespace Confy.API.Controllers
 
 			await mediator.Send(command);
 
-			return Ok();
+			var uri = $"/users/{command.Id}";
+
+			return Created(uri, new { Id = command.Id });
 		}
 
 		[HttpPost("login")]
