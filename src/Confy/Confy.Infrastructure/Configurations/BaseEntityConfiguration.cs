@@ -1,7 +1,7 @@
 ﻿namespace Confy.Infrastructure.Configurations;
 public class BaseEntityConfiguration<TEntity>
 	: IEntityTypeConfiguration<TEntity>
-	where TEntity : Entity
+	where TEntity : class, IEntity
 {
 	public virtual void Configure(EntityTypeBuilder<TEntity> builder)
 	{

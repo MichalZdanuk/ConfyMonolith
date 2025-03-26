@@ -1,4 +1,5 @@
 ﻿using Confy.Domain.Authentication;
+using Confy.Domain.ConferenceManagement;
 
 namespace Confy.Infrastructure.Data;
 public class ConfyDbContext
@@ -11,7 +12,19 @@ public class ConfyDbContext
 	{
 	}
 
+	// Authentication
 	public DbSet<User> Users { get; set; }
+
+	// ConferenceManagement
+	public DbSet<Conference> Conferences { get; set; }
+	public DbSet<Lecture> Lectures { get; set; }
+	public DbSet<Prelegent> Prelegents { get; set; }
+	public DbSet<LectureAssignment> LectureAssignments { get; set; }
+
+	// Registration
+
+	// Notification
+
 
 	protected override void OnModelCreating(ModelBuilder modelBuilder)
 	{

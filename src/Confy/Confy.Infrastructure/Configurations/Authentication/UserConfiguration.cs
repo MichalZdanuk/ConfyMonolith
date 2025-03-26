@@ -1,6 +1,6 @@
 ﻿using Confy.Domain.Authentication;
 
-namespace Confy.Infrastructure.Configurations;
+namespace Confy.Infrastructure.Configurations.Authentication;
 public class UserConfiguration : BaseEntityConfiguration<User>,
 	IEntityTypeConfiguration<User>
 {
