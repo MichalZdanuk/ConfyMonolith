@@ -9,12 +9,6 @@ namespace Confy.API.Controllers
     public class AuthController(IMediator mediator)
         : ControllerBase
     {
-        [HttpGet]
-        public async Task<IActionResult> Get()
-        {
-            return Ok("Ok auth test");
-        }
-
 		[HttpPost("register")]
 		public async Task<ActionResult> Register([FromBody] RegisterDto dto)
 		{
