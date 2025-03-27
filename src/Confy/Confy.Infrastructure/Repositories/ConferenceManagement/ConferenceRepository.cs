@@ -28,6 +28,19 @@ public class ConferenceRepository(ConfyDbContext context)
 		return conference;
 	}
 
+	public async Task<List<Conference>> BrowseAsync(int pageNumber, int pageSize)
+	{
+		return await context.Conferences
+			.Skip((pageNumber - 1) * pageSize)
+			.Take(pageSize)
+			.ToListAsync();
+	}
+
+	public async Task<int> CountAsync()
+	{
+		return await context.Conferences.CountAsync();
+	}
+
 	public async Task AddAsync(Conference conference)
 	{
 		await context.AddAsync(conference);

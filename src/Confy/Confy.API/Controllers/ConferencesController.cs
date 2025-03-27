@@ -1,6 +1,9 @@
 ﻿using Confy.Application.Commands.ConferenceManagement.CreateConference;
+using Confy.Application.Common;
+using Confy.Application.DTO.ConferenceManagement.BrowseConferences;
 using Confy.Application.DTO.ConferenceManagement.CreateConference;
 using Confy.Application.DTO.ConferenceManagement.GetConferenceById;
+using Confy.Application.Queries.ConferenceManagement.BrowseConferences;
 using Confy.Application.Queries.ConferenceManagement.GetConferenceById;
 using Microsoft.AspNetCore.Authorization;
 
@@ -35,5 +38,15 @@ public class ConferencesController(IMediator mediator)
 		var result = await mediator.Send(query);
 
 		return result;
+	}
+
+	[HttpGet]
+	public async Task<ActionResult<PaginationResult<ConferenceDto>>> Get([FromQuery] PaginationRequest request)
+	{
+		var query = new BrowseConferencesQuery(request);
+
+		var result = await mediator.Send(query);
+
+		return Ok(result);
 	}
 }
