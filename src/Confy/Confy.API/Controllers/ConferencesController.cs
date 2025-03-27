@@ -1,6 +1,8 @@
-﻿using Confy.Application.Commands.ConferenceManagement.CreateConference;
+﻿using Confy.Application.Commands.ConferenceManagement.AddLecture;
+using Confy.Application.Commands.ConferenceManagement.CreateConference;
 using Confy.Application.Commands.ConferenceManagement.UpdateConference;
 using Confy.Application.Common;
+using Confy.Application.DTO.ConferenceManagement.AddLecture;
 using Confy.Application.DTO.ConferenceManagement.BrowseConferences;
 using Confy.Application.DTO.ConferenceManagement.CreateConference;
 using Confy.Application.DTO.ConferenceManagement.GetConferenceById;
@@ -65,5 +67,17 @@ public class ConferencesController(IMediator mediator)
 		var result = await mediator.Send(query);
 
 		return Ok(result);
+	}
+
+	[HttpPost("{id}/lectures")]
+	public async Task<ActionResult> AddLecture(Guid id, [FromBody] AddLectureDto dto)
+	{
+		var command = new AddLectureCommand(id, dto.Title, dto.StartDate, dto.EndDate, dto.PrelegentIds);
+
+		await mediator.Send(command);
+
+		var uri = $"/lectures/{command.Id}";
+
+		return Created(uri, new { Id = command.Id });
 	}
 }
