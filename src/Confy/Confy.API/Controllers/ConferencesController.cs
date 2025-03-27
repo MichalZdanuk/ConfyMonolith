@@ -1,8 +1,10 @@
 ﻿using Confy.Application.Commands.ConferenceManagement.CreateConference;
+using Confy.Application.Commands.ConferenceManagement.UpdateConference;
 using Confy.Application.Common;
 using Confy.Application.DTO.ConferenceManagement.BrowseConferences;
 using Confy.Application.DTO.ConferenceManagement.CreateConference;
 using Confy.Application.DTO.ConferenceManagement.GetConferenceById;
+using Confy.Application.DTO.ConferenceManagement.UpdateConference;
 using Confy.Application.Queries.ConferenceManagement.BrowseConferences;
 using Confy.Application.Queries.ConferenceManagement.GetConferenceById;
 using Microsoft.AspNetCore.Authorization;
@@ -16,7 +18,7 @@ public class ConferencesController(IMediator mediator)
 	: ControllerBase
 {
 	[HttpPost]
-	public async Task<ActionResult> CreateConference([FromBody]CreateConferenceDto dto)
+	public async Task<ActionResult> CreateConference([FromBody] CreateConferenceDto dto)
 	{
 		var command = new CreateConferenceCommand(dto.Name,
 			dto.Language,
@@ -28,6 +30,21 @@ public class ConferencesController(IMediator mediator)
 		var uri = $"/conferences/{command.Id}";
 
 		return Created(uri, new { Id = command.Id });
+	}
+
+	[HttpPut("{id}")]
+	public async Task<ActionResult> UpdateConference([FromRoute] Guid id, [FromBody] UpdateConferenceDto dto)
+	{
+		var command = new UpdateConferenceCommand(id,
+			dto.Name,
+			dto.Language,
+			dto.conferenceLinksDto,
+			dto.conferenceDetailsDto,
+			dto.AddressDto);
+
+		await mediator.Send(command);
+
+		return Accepted();
 	}
 
 	[HttpGet("{id}")]

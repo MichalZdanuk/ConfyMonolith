@@ -45,4 +45,9 @@ public class ConferenceRepository(ConfyDbContext context)
 	{
 		await context.AddAsync(conference);
 	}
+
+	public async Task UpdateAsync(Conference conference)
+	{
+		context.Conferences.Update(conference);
+	}
 }
