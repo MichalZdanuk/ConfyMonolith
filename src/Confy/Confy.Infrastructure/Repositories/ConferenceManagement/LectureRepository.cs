@@ -22,6 +22,13 @@ public class LectureRepository(ConfyDbContext context)
 			.Where(l => l.ConferenceId == conferenceId).ToListAsync();
 	}
 
+	public async Task<Lecture?> GetWithAssignmentsByIdAsync(Guid id)
+	{
+		return await context.Lectures
+			.Include(l => l.LectureAssignments)
+			.SingleOrDefaultAsync(l => l.Id == id);
+	}
+
 	public async Task UpdateAsync(Lecture lecture)
 	{
 		context.Lectures.Update(lecture);
