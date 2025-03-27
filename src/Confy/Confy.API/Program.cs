@@ -4,6 +4,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services
+	.AddAuthenticationAndAuthorization(builder.Configuration)
 	.AddApiServices(builder.Configuration)
 	.AddApplication()
 	.AddInfrastructure(builder.Configuration);
