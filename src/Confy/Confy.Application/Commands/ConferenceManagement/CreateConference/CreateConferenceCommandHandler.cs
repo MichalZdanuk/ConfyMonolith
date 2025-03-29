@@ -31,7 +31,7 @@ public class CreateConferenceCommandHandler(IConferenceRepository conferenceRepo
 
 		var conference = Conference.Create(command.Id,
 			command.Name,
-			command.Language,
+			command.ConferenceLanguage,
 			conferenceLinks,
 			conferenceDetails,
 			address);

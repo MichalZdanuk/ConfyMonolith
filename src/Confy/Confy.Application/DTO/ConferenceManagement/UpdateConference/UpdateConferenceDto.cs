@@ -1,6 +1,8 @@
-﻿namespace Confy.Application.DTO.ConferenceManagement.UpdateConference;
+﻿using Confy.Shared.Enums;
+
+namespace Confy.Application.DTO.ConferenceManagement.UpdateConference;
 public record UpdateConferenceDto(string Name,
-	string Language,
+	ConferenceLanguage ConferenceLanguage,
 	UpdateConferenceLinksDto conferenceLinksDto,
 	UpdateConferenceDetailsDto conferenceDetailsDto,
 	UpdateAddressDto AddressDto);

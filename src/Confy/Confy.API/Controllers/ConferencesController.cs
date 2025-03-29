@@ -23,7 +23,7 @@ public class ConferencesController(IMediator mediator)
 	public async Task<ActionResult> CreateConference([FromBody] CreateConferenceDto dto)
 	{
 		var command = new CreateConferenceCommand(dto.Name,
-			dto.Language,
+			dto.ConferenceLanguage,
 			dto.ConferenceLinksDto,
 			dto.ConferenceDetailsDto,
 			dto.AddressDto);
@@ -39,7 +39,7 @@ public class ConferencesController(IMediator mediator)
 	{
 		var command = new UpdateConferenceCommand(id,
 			dto.Name,
-			dto.Language,
+			dto.ConferenceLanguage,
 			dto.conferenceLinksDto,
 			dto.conferenceDetailsDto,
 			dto.AddressDto);

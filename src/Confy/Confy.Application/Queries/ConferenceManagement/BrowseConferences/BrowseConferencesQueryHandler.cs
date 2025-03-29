@@ -1,6 +1,7 @@
 ﻿using Confy.Application.DTO.ConferenceManagement.BrowseConferences;
 using Confy.Application.DTO.ConferenceManagement.GetConferenceById;
 using Confy.Domain.Repositories.ConferenceManagement;
+using System.Linq;
 
 namespace Confy.Application.Queries.ConferenceManagement.BrowseConferences;
 public class BrowseConferencesQueryHandler(IConferenceRepository conferenceRepository)
@@ -14,7 +15,7 @@ public class BrowseConferencesQueryHandler(IConferenceRepository conferenceRepos
 			.Select(c => new ConferenceDto(
 				c.Id,
 				c.Name,
-				c.Language,
+				c.ConferenceLanguage.ToString(),
 				new ConferenceDetailsDto(
 					c.ConferenceDetails.StartDate,
 					c.ConferenceDetails.EndDate,

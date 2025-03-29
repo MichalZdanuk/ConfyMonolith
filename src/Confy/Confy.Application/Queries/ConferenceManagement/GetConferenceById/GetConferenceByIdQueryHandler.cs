@@ -54,7 +54,7 @@ public class GetConferenceByIdQueryHandler(IConferenceRepository conferenceRepos
 	{
 		return new GetConferenceDto(
 			conference.Name,
-			conference.Language,
+			conference.ConferenceLanguage.ToString(),
 			new ConferenceLinksDto(
 				conference.ConferenceLinks.WebsiteUrl,
 				conference.ConferenceLinks.FacebookUrl,

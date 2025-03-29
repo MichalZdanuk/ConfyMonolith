@@ -10,4 +10,8 @@
     <PackageReference Include="MediatR" Version="12.4.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Confy.Shared\Confy.Shared.csproj" />
+  </ItemGroup>
+
 </Project>
