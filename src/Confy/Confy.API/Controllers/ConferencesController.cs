@@ -9,6 +9,7 @@ using Confy.Application.DTO.ConferenceManagement.GetConferenceById;
 using Confy.Application.DTO.ConferenceManagement.UpdateConference;
 using Confy.Application.Queries.ConferenceManagement.BrowseConferences;
 using Confy.Application.Queries.ConferenceManagement.GetConferenceById;
+using Confy.Shared.Enums;
 using Microsoft.AspNetCore.Authorization;
 
 namespace Confy.API.Controllers;
@@ -60,9 +61,12 @@ public class ConferencesController(IMediator mediator)
 	}
 
 	[HttpGet]
-	public async Task<ActionResult<PaginationResult<ConferenceDto>>> Get([FromQuery] PaginationRequest request)
+	public async Task<ActionResult<PaginationResult<ConferenceDto>>> Browse([FromQuery] PaginationRequest request,
+		[FromQuery] List<ConferenceLanguage> languages, [FromQuery] bool? isOnline = null, [FromQuery] string? country = null,
+		[FromQuery] DateTime? startDate = null, [FromQuery] DateTime? endDate = null)
 	{
-		var query = new BrowseConferencesQuery(request);
+		var query = new BrowseConferencesQuery(request, languages ?? new List<ConferenceLanguage>(),
+			isOnline, country, startDate, endDate);
 
 		var result = await mediator.Send(query);
 

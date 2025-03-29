@@ -1,7 +1,6 @@
 ﻿using Confy.Application.DTO.ConferenceManagement.BrowseConferences;
 using Confy.Application.DTO.ConferenceManagement.GetConferenceById;
 using Confy.Domain.Repositories.ConferenceManagement;
-using System.Linq;
 
 namespace Confy.Application.Queries.ConferenceManagement.BrowseConferences;
 public class BrowseConferencesQueryHandler(IConferenceRepository conferenceRepository)
@@ -9,7 +8,8 @@ public class BrowseConferencesQueryHandler(IConferenceRepository conferenceRepos
 {
 	public async Task<PaginationResult<ConferenceDto>> Handle(BrowseConferencesQuery query, CancellationToken cancellationToken)
 	{
-		var conferences = await conferenceRepository.BrowseAsync(query.Pagination.PageNumber, query.Pagination.PageSize);
+		var conferences = await conferenceRepository.BrowseAsync(query.Pagination.PageNumber, query.Pagination.PageSize,
+			query.Languages, query.IsOnline, query.Country, query.StartDate, query.EndDate);
 
 		var conferenceDtos = conferences
 			.Select(c => new ConferenceDto(
