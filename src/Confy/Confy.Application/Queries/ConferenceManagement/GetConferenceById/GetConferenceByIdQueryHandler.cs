@@ -1,7 +1,7 @@
 ﻿using Confy.Application.DTO.ConferenceManagement.GetConferenceById;
-using Confy.Domain.ConferenceManagement.Exceptions;
 using Confy.Domain.ConferenceManagement;
-using Confy.Domain.Repositories.ConferenceManagement;
+using Confy.Domain.ConferenceManagement.Exceptions;
+using Confy.Domain.ConferenceManagement.Repositories;
 
 namespace Confy.Application.Queries.ConferenceManagement.GetConferenceById;
 public class GetConferenceByIdQueryHandler(IConferenceRepository conferenceRepository,

@@ -1,7 +1,6 @@
-﻿using Confy.Domain.ConferenceManagement;
-using Confy.Shared.Enums;
+﻿using Confy.Shared.Enums;
 
-namespace Confy.Domain.Repositories.ConferenceManagement;
+namespace Confy.Domain.ConferenceManagement.Repositories;
 public interface IConferenceRepository
 {
 	Task<Conference?> GetByIdAsync(Guid id);

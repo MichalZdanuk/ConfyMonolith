@@ -1,5 +1,5 @@
-﻿using Confy.Domain.Repositories.Authentication;
-using Confy.Domain.Repositories.ConferenceManagement;
+﻿using Confy.Domain.Authentication.Repositories;
+using Confy.Domain.ConferenceManagement.Repositories;
 using Confy.Infrastructure.Interceptors;
 using Confy.Infrastructure.Repositories.Authentication;
 using Confy.Infrastructure.Repositories.ConferenceManagement;

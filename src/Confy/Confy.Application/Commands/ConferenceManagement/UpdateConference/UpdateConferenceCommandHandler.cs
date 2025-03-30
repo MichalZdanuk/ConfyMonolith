@@ -1,6 +1,6 @@
 ﻿using Confy.Domain.ConferenceManagement.Exceptions;
+using Confy.Domain.ConferenceManagement.Repositories;
 using Confy.Domain.ConferenceManagement.ValueObjects;
-using Confy.Domain.Repositories.ConferenceManagement;
 
 namespace Confy.Application.Commands.ConferenceManagement.UpdateConference;
 public class UpdateConferenceCommandHandler(IConferenceRepository conferenceRepository)

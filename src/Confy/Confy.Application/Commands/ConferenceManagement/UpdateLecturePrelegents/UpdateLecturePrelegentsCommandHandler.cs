@@ -1,5 +1,5 @@
 ﻿using Confy.Domain.ConferenceManagement.Exceptions;
-using Confy.Domain.Repositories.ConferenceManagement;
+using Confy.Domain.ConferenceManagement.Repositories;
 
 namespace Confy.Application.Commands.ConferenceManagement.UpdateLecturePrelegents;
 public class UpdateLecturePrelegentsCommandHandler(ILectureRepository lectureRepository,

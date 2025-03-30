@@ -1,5 +1,5 @@
 ﻿using Confy.Domain.ConferenceManagement;
-using Confy.Domain.Repositories.ConferenceManagement;
+using Confy.Domain.ConferenceManagement.Repositories;
 
 namespace Confy.Infrastructure.Repositories.ConferenceManagement;
 public class PrelegentRepository(ConfyDbContext context)

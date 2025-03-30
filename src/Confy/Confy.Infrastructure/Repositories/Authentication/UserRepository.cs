@@ -1,5 +1,5 @@
 ﻿using Confy.Domain.Authentication;
-using Confy.Domain.Repositories.Authentication;
+using Confy.Domain.Authentication.Repositories;
 
 namespace Confy.Infrastructure.Repositories.Authentication;
 public class UserRepository : IUserRepository

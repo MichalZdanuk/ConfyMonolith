@@ -1,6 +1,6 @@
 ﻿using Confy.Domain.ConferenceManagement;
+using Confy.Domain.ConferenceManagement.Repositories;
 using Confy.Domain.ConferenceManagement.ValueObjects;
-using Confy.Domain.Repositories.ConferenceManagement;
 
 namespace Confy.Application.Commands.ConferenceManagement.CreateConference;
 public class CreateConferenceCommandHandler(IConferenceRepository conferenceRepository)

@@ -1,6 +1,6 @@
 ﻿using Confy.Application.DTO.ConferenceManagement.BrowseConferences;
 using Confy.Application.DTO.ConferenceManagement.GetConferenceById;
-using Confy.Domain.Repositories.ConferenceManagement;
+using Confy.Domain.ConferenceManagement.Repositories;
 
 namespace Confy.Application.Queries.ConferenceManagement.BrowseConferences;
 public class BrowseConferencesQueryHandler(IConferenceRepository conferenceRepository)
