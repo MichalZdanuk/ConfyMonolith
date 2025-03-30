@@ -1,6 +1,4 @@
-﻿using Confy.Shared.Exceptions;
-
-namespace Confy.Domain.Registration.Exceptions;
+﻿namespace Confy.Domain.Registration.Exceptions;
 public class CannotCancelAlreadyCancelledRegistrationException
 	: BadRequestException
 {
