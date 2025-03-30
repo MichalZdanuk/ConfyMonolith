@@ -1,5 +1,6 @@
 ﻿using Confy.Domain.Authentication;
 using Confy.Domain.ConferenceManagement;
+using Confy.Domain.Registration;
 
 namespace Confy.Infrastructure.Data;
 public class ConfyDbContext
@@ -20,6 +21,7 @@ public class ConfyDbContext
 	public DbSet<Lecture> Lectures { get; set; }
 	public DbSet<Prelegent> Prelegents { get; set; }
 	public DbSet<LectureAssignment> LectureAssignments { get; set; }
+	public DbSet<Registration> Registrations { get; set; }
 
 	// Registration
 

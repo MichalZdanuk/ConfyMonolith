@@ -32,5 +32,9 @@ public class UserConfiguration : BaseEntityConfiguration<User>,
 				fullNameBuilder.Property(f => f.LastName)
 					.IsRequired();
 			});
+
+		builder.HasMany<Domain.Registration.Registration>()
+			.WithOne()
+			.HasForeignKey(r => r.UserId);
 	}
 }

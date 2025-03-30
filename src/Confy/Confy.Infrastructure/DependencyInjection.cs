@@ -1,8 +1,10 @@
 ﻿using Confy.Domain.Authentication.Repositories;
 using Confy.Domain.ConferenceManagement.Repositories;
+using Confy.Domain.Registration.Repositories;
 using Confy.Infrastructure.Interceptors;
 using Confy.Infrastructure.Repositories.Authentication;
 using Confy.Infrastructure.Repositories.ConferenceManagement;
+using Confy.Infrastructure.Repositories.Registration;
 using Confy.Shared.UnitOfWork;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -34,6 +36,7 @@ public static class DependencyInjection
 		services.AddScoped<IPrelegentRepository, PrelegentRepository>();
 		services.AddScoped<IConferenceRepository, ConferenceRepository>();
 		services.AddScoped<ILectureRepository, LectureRepository>();
+		services.AddScoped<IRegistrationRepository, RegistrationRepository>();
 
 		return services;
 	}

@@ -1,4 +1,5 @@
 ﻿using Confy.Application.Behaviors;
+using Confy.Application.Context;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
@@ -14,7 +15,17 @@ public static class DependencyInjection
 			config.AddOpenBehavior(typeof(TransactionalPipelineBehavior<,>));
 		});
 
+		services.AddConfyHttpContext();
+
+		services.AddApplicationServices();
+
+		return services;
+	}
+
+	private static IServiceCollection AddApplicationServices(this IServiceCollection services)
+	{
 		services.AddScoped<ICustomAuthService, CustomAuthService>();
+		services.AddScoped<IRegistrationService, RegistrationService>();
 
 		return services;
 	}
