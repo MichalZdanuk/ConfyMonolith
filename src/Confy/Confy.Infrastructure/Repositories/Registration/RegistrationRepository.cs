@@ -27,4 +27,28 @@ public class RegistrationRepository(ConfyDbContext context)
 			.Include(r => r.Conference)
 			.SingleOrDefaultAsync(r => r.Id == id);
 	}
+
+	public async Task<IList<Domain.Registration.Registration>> BrowseByUserIdAsync(Guid userId,
+		bool onlyPending, int pageNumber, int pageSize)
+	{
+		var registrationsQuery = context.Registrations
+			.Include(r => r.Conference)
+			.Where(r => r.UserId == userId);
+
+		if (onlyPending)
+		{
+			registrationsQuery = registrationsQuery.Where(r => r.Conference.ConferenceDetails.StartDate > DateTime.UtcNow);
+		}
+
+		return await registrationsQuery
+			.OrderBy(r => r.Conference.ConferenceDetails.StartDate)
+			.Skip((pageNumber - 1) * pageSize)
+			.Take(pageSize)
+			.ToListAsync();
+	}
+
+	public async Task<int> CountByUserIdAsync(Guid userId)
+	{
+		return await context.Registrations.CountAsync(r => r.UserId == userId);
+	}
 }
