@@ -1,4 +1,4 @@
-﻿namespace Confy.Domain.Abstractions.Exceptions;
+﻿namespace Confy.Shared.Exceptions;
 public abstract class BadRequestException : Exception
 {
 	public BadRequestException(string message) : base(message)

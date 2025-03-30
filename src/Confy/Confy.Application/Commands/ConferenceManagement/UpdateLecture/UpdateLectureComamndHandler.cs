@@ -1,4 +1,4 @@
-﻿using Confy.Application.Exceptions.ConferenceManagement;
+﻿using Confy.Domain.ConferenceManagement.Exceptions;
 using Confy.Domain.ConferenceManagement.ValueObjects;
 using Confy.Domain.Repositories.ConferenceManagement;
 

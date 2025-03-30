@@ -1,4 +1,4 @@
-﻿using Confy.Application.Exceptions.Abstractions;
+﻿using Confy.Shared.Exceptions;
 using Microsoft.AspNetCore.Diagnostics;
 using System.Net;
 using System.Text.Json;

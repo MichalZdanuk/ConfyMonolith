@@ -1,5 +1,5 @@
 ﻿using Confy.Application.DTO.ConferenceManagement.GetConferenceById;
-using Confy.Application.Exceptions.ConferenceManagement;
+using Confy.Domain.ConferenceManagement.Exceptions;
 using Confy.Domain.ConferenceManagement;
 using Confy.Domain.Repositories.ConferenceManagement;
 

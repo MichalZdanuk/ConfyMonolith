@@ -1,4 +1,4 @@
-﻿using Confy.Application.Exceptions.ConferenceManagement;
+﻿using Confy.Domain.ConferenceManagement.Exceptions;
 using Confy.Domain.Repositories.ConferenceManagement;
 
 namespace Confy.Application.Commands.ConferenceManagement.UpdateLecturePrelegents;

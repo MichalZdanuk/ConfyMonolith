@@ -1,4 +1,4 @@
-﻿using Confy.Domain.Abstractions.Exceptions;
+﻿using Confy.Shared.Exceptions;
 
 namespace Confy.Domain.Registration.Exceptions;
 public class CannotRegisterAfterStartOfConferenceException

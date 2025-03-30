@@ -1,4 +1,6 @@
-﻿namespace Confy.Application.Exceptions.ConferenceManagement;
+﻿using Confy.Shared.Exceptions;
+
+namespace Confy.Domain.ConferenceManagement.Exceptions;
 public class InvalidPrelegentsExcpetion
 	: BadRequestException
 {

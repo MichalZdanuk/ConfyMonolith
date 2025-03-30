@@ -1,5 +1,5 @@
-﻿using Confy.Application.Exceptions.Authentication;
-using Confy.Domain.Authentication;
+﻿using Confy.Domain.Authentication;
+using Confy.Domain.Authentication.Exceptions;
 using Confy.Domain.Authentication.ValueObjects;
 using Confy.Domain.ConferenceManagement;
 using Confy.Domain.Enums;
