@@ -1,4 +1,6 @@
 ﻿using Confy.Domain.Registration.Repositories;
+using Confy.Shared.Enums;
+using System.Linq;
 
 namespace Confy.Infrastructure.Repositories.Registration;
 public class RegistrationRepository(ConfyDbContext context)
@@ -45,6 +47,18 @@ public class RegistrationRepository(ConfyDbContext context)
 			.Skip((pageNumber - 1) * pageSize)
 			.Take(pageSize)
 			.ToListAsync();
+	}
+
+	public async Task<IList<Domain.Registration.Registration>> BrowseByConferenceIdAsync(Guid conferenceId, List<RegistrationStatus> statuses)
+	{
+		var query = context.Registrations.Where(r => r.ConferenceId == conferenceId);
+
+		if (statuses.Count > 0)
+		{
+			query = query.Where(r => statuses.Contains(r.RegistrationStatus));
+		}
+
+		return await query.ToListAsync();
 	}
 
 	public async Task<int> CountByUserIdAsync(Guid userId)

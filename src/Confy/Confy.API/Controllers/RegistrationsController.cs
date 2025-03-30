@@ -2,6 +2,8 @@
 using Confy.Application.Commands.Registrations.CancelRegistration;
 using Confy.Application.Common;
 using Confy.Application.Queries.Registrations.BrowseMyRegistrations;
+using Confy.Application.Queries.Registrations.BrowseRegistrationsByConference;
+using Confy.Shared.Enums;
 using Microsoft.AspNetCore.Authorization;
 
 namespace Confy.API.Controllers;
@@ -39,6 +41,17 @@ public class RegistrationsController(IMediator mediator)
 		bool onlyPending = false)
 	{
 		var query = new BrowseMyRegistrationsQuery(request, onlyPending);
+
+		var result = await mediator.Send(query);
+
+		return Ok(result);
+	}
+
+	[HttpGet("conference/{conferenceId}")]
+	public async Task<ActionResult<IReadOnlyList<ConferenceRegistrationDto>>> BrowseRegistrationsByConference([FromRoute] Guid conferenceId,
+		[FromQuery] List<RegistrationStatus> statuses)
+	{
+		var query = new BrowseRegistrationsByConferenceQuery(conferenceId, statuses ?? new List<RegistrationStatus>());
 
 		var result = await mediator.Send(query);
 
