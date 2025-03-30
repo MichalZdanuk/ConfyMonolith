@@ -20,4 +20,11 @@ public class RegistrationRepository(ConfyDbContext context)
 			.Include(r => r.Conference)
 			.SingleOrDefaultAsync(r => r.UserId == userId && r.ConferenceId == conferenceId);
 	}
+
+	public async Task<Domain.Registration.Registration?> GetByIdAsync(Guid id)
+	{
+		return await context.Registrations
+			.Include(r => r.Conference)
+			.SingleOrDefaultAsync(r => r.Id == id);
+	}
 }

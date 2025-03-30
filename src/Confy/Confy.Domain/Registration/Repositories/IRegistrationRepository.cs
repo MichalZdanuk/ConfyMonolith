@@ -3,5 +3,6 @@ public interface IRegistrationRepository
 {
 	public Task AddAsync(Registration registration);
 	public Task UpdateAsync(Registration registration);
+	public Task<Registration?> GetByIdAsync(Guid id);
 	public Task<Registration?> GetByUserIdAndConferenceId(Guid userId, Guid conferenceId);
 }

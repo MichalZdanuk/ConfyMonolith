@@ -1,4 +1,5 @@
 ﻿using Confy.Application.Commands.Registrations.AddRegistration;
+using Confy.Application.Commands.Registrations.CancelRegistration;
 using Microsoft.AspNetCore.Authorization;
 
 namespace Confy.API.Controllers;
@@ -19,5 +20,15 @@ public class RegistrationsController(IMediator mediator)
 		var uri = $"/registrations/{registrationId}";
 
 		return Created(uri, new { Id = registrationId });
+	}
+
+	[HttpPut("{id}/cancel")]
+	public async Task<ActionResult> CancelRegistration([FromRoute] Guid id)
+	{
+		var command = new CancelRegistrationCommand(id);
+
+		await mediator.Send(command);
+
+		return Accepted();
 	}
 }

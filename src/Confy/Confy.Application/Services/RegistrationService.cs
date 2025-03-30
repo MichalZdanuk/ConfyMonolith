@@ -1,6 +1,7 @@
 ﻿using Confy.Domain.ConferenceManagement.Exceptions;
 using Confy.Domain.ConferenceManagement.Repositories;
 using Confy.Domain.Registration;
+using Confy.Domain.Registration.Exceptions;
 using Confy.Domain.Registration.Repositories;
 
 namespace Confy.Application.Services;
@@ -37,5 +38,26 @@ public class RegistrationService(IContext context,
 
 			return registration.Id;
 		}
+	}
+
+	public async Task CancelRegistrationAsync(Guid registrationId)
+	{
+		var userId = context.UserId;
+
+		var registration = await registrationRepository.GetByIdAsync(registrationId);
+
+		if (registration is null)
+		{
+			throw new RegistrationNotFoundException(registrationId);
+		}
+
+		if (registration.UserId != userId)
+		{
+			throw new AccessForRegistrationForbiddenException(registrationId);
+		}
+
+		registration.Cancel();
+
+		await registrationRepository.UpdateAsync(registration);
 	}
 }
