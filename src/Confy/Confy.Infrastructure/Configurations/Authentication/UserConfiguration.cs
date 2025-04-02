@@ -33,7 +33,7 @@ public class UserConfiguration : BaseEntityConfiguration<User>,
 					.IsRequired();
 			});
 
-		builder.HasMany<Domain.Registration.Registration>()
+		builder.HasMany<Domain.Registration.Entities.Registration>()
 			.WithOne()
 			.HasForeignKey(r => r.UserId);
 

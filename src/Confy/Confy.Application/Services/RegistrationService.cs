@@ -1,6 +1,6 @@
 ﻿using Confy.Domain.ConferenceManagement.Exceptions;
 using Confy.Domain.ConferenceManagement.Repositories;
-using Confy.Domain.Registration;
+using Confy.Domain.Registration.Entities;
 using Confy.Domain.Registration.Exceptions;
 using Confy.Domain.Registration.Repositories;
 

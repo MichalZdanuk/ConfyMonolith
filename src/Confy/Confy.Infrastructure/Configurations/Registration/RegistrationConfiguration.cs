@@ -1,8 +1,8 @@
 ﻿namespace Confy.Infrastructure.Configurations.Registration;
 public class RegistrationConfiguration
-	: BaseEntityConfiguration<Domain.Registration.Registration>, IEntityTypeConfiguration<Domain.Registration.Registration>
+	: BaseEntityConfiguration<Domain.Registration.Entities.Registration>, IEntityTypeConfiguration<Domain.Registration.Entities.Registration>
 {
-	public override void Configure(EntityTypeBuilder<Domain.Registration.Registration> builder)
+	public override void Configure(EntityTypeBuilder<Domain.Registration.Entities.Registration> builder)
 	{
 		base.Configure(builder);
 

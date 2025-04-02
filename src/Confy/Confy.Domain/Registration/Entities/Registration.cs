@@ -3,7 +3,7 @@ using Confy.Domain.Registration.Events;
 using Confy.Domain.Registration.Exceptions;
 using Confy.Shared.Enums;
 
-namespace Confy.Domain.Registration;
+namespace Confy.Domain.Registration.Entities;
 public class Registration : Aggregate
 {
 	public Guid UserId { get; private set; }

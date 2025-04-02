@@ -1,7 +1,7 @@
 ﻿using Confy.Domain.Authentication.Entities;
 using Confy.Domain.ConferenceManagement.Entities;
 using Confy.Domain.Notification.Entities;
-using Confy.Domain.Registration;
+using Confy.Domain.Registration.Entities;
 
 namespace Confy.Infrastructure.Data;
 public class ConfyDbContext

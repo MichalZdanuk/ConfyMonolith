@@ -6,31 +6,31 @@ namespace Confy.Infrastructure.Repositories.Registration;
 public class RegistrationRepository(ConfyDbContext context)
 	: IRegistrationRepository
 {
-	public async Task AddAsync(Domain.Registration.Registration registration)
+	public async Task AddAsync(Domain.Registration.Entities.Registration registration)
 	{
 		await context.Registrations.AddAsync(registration);
 	}
 
-	public async Task UpdateAsync(Domain.Registration.Registration registration)
+	public async Task UpdateAsync(Domain.Registration.Entities.Registration registration)
 	{
 		context.Registrations.Update(registration);
 	}
 
-	public async Task<Domain.Registration.Registration?> GetByUserIdAndConferenceId(Guid userId, Guid conferenceId)
+	public async Task<Domain.Registration.Entities.Registration?> GetByUserIdAndConferenceId(Guid userId, Guid conferenceId)
 	{
 		return await context.Registrations
 			.Include(r => r.Conference)
 			.SingleOrDefaultAsync(r => r.UserId == userId && r.ConferenceId == conferenceId);
 	}
 
-	public async Task<Domain.Registration.Registration?> GetByIdAsync(Guid id)
+	public async Task<Domain.Registration.Entities.Registration?> GetByIdAsync(Guid id)
 	{
 		return await context.Registrations
 			.Include(r => r.Conference)
 			.SingleOrDefaultAsync(r => r.Id == id);
 	}
 
-	public async Task<IList<Domain.Registration.Registration>> BrowseByUserIdAsync(Guid userId,
+	public async Task<IList<Domain.Registration.Entities.Registration>> BrowseByUserIdAsync(Guid userId,
 		bool onlyPending, int pageNumber, int pageSize)
 	{
 		var registrationsQuery = context.Registrations
@@ -49,7 +49,7 @@ public class RegistrationRepository(ConfyDbContext context)
 			.ToListAsync();
 	}
 
-	public async Task<IList<Domain.Registration.Registration>> BrowseByConferenceIdAsync(Guid conferenceId, List<RegistrationStatus> statuses)
+	public async Task<IList<Domain.Registration.Entities.Registration>> BrowseByConferenceIdAsync(Guid conferenceId, List<RegistrationStatus> statuses)
 	{
 		var query = context.Registrations.Where(r => r.ConferenceId == conferenceId);
 
