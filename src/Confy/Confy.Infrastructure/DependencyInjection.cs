@@ -1,9 +1,11 @@
 ﻿using Confy.Domain.Authentication.Repositories;
 using Confy.Domain.ConferenceManagement.Repositories;
+using Confy.Domain.Notification.Repositories;
 using Confy.Domain.Registration.Repositories;
 using Confy.Infrastructure.Interceptors;
 using Confy.Infrastructure.Repositories.Authentication;
 using Confy.Infrastructure.Repositories.ConferenceManagement;
+using Confy.Infrastructure.Repositories.Notification;
 using Confy.Infrastructure.Repositories.Registration;
 using Confy.Shared.UnitOfWork;
 using Microsoft.Extensions.DependencyInjection;
@@ -37,6 +39,7 @@ public static class DependencyInjection
 		services.AddScoped<IConferenceRepository, ConferenceRepository>();
 		services.AddScoped<ILectureRepository, LectureRepository>();
 		services.AddScoped<IRegistrationRepository, RegistrationRepository>();
+		services.AddScoped<INotificationRepository, NotificationRepository>();
 
 		return services;
 	}
