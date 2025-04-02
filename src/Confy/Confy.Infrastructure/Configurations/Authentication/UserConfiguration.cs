@@ -36,5 +36,9 @@ public class UserConfiguration : BaseEntityConfiguration<User>,
 		builder.HasMany<Domain.Registration.Registration>()
 			.WithOne()
 			.HasForeignKey(r => r.UserId);
+
+		builder.HasMany<Domain.Notification.Entities.Notification>()
+			.WithOne()
+			.HasForeignKey(n => n.UserId);
 	}
 }
