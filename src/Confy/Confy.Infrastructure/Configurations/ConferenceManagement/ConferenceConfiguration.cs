@@ -45,5 +45,13 @@ public class ConferenceConfiguration
 			.WithOne()
 			.HasForeignKey(l => l.ConferenceId)
 			.OnDelete(DeleteBehavior.Cascade);
+
+		builder.HasMany<Domain.Registration.Entities.Registration>()
+			.WithOne()
+			.HasForeignKey(r => r.ConferenceId);
+
+		builder.HasMany<Domain.Notification.Entities.Notification>()
+			.WithOne()
+			.HasForeignKey(n => n.ConferenceId);
 	}
 }
