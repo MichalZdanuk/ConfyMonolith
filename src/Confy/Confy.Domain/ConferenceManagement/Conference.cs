@@ -1,4 +1,5 @@
-﻿using Confy.Domain.ConferenceManagement.ValueObjects;
+﻿using Confy.Domain.ConferenceManagement.Exceptions;
+using Confy.Domain.ConferenceManagement.ValueObjects;
 using Confy.Shared.Enums;
 
 namespace Confy.Domain.ConferenceManagement;
@@ -19,6 +20,16 @@ public class Conference : Aggregate
 		ConferenceDetails details,
 		Address address)
 	{
+		if (details.StartDate <= DateTime.UtcNow)
+		{
+			throw new InvalidConferenceDateException(details.StartDate);
+		}
+
+		if (details.StartDate >= details.EndDate)
+		{
+			throw new ConferenceDatesCollisionException();
+		}
+
 		var conference = new Conference
 		{
 			Id = id,
@@ -38,6 +49,11 @@ public class Conference : Aggregate
 		ConferenceDetails details,
 		Address address)
 	{
+		if (ConferenceDetails.StartDate <= DateTime.UtcNow)
+		{
+			throw new CannotModifyActiveConferenceException(Id);
+		}
+
 		Name = name;
 		ConferenceLanguage = conferenceLanguage;
 		ConferenceLinks = conferenceLinks;
