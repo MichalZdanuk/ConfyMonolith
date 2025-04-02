@@ -1,10 +1,10 @@
-﻿using Confy.Domain.Authentication;
+﻿using Confy.Domain.Authentication.Entities;
+using Confy.Domain.Authentication.Enums;
 using Confy.Domain.Authentication.Exceptions;
 using Confy.Domain.Authentication.Repositories;
 using Confy.Domain.Authentication.ValueObjects;
-using Confy.Domain.ConferenceManagement;
+using Confy.Domain.ConferenceManagement.Entities;
 using Confy.Domain.ConferenceManagement.Repositories;
-using Confy.Domain.Enums;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;

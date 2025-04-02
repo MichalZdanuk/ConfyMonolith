@@ -1,4 +1,4 @@
-﻿using Confy.Domain.ConferenceManagement;
+﻿using Confy.Domain.ConferenceManagement.Entities;
 using Confy.Domain.Registration.Events;
 using Confy.Domain.Registration.Exceptions;
 using Confy.Shared.Enums;

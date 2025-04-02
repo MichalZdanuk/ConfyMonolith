@@ -1,4 +1,4 @@
-﻿namespace Confy.Domain.ConferenceManagement;
+﻿namespace Confy.Domain.ConferenceManagement.Entities;
 public class Prelegent : Entity
 {
 	private readonly List<LectureAssignment> _lectureAssignments = new();

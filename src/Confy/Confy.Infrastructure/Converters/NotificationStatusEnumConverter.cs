@@ -1,4 +1,4 @@
-﻿using Confy.Domain.Notification.Enum;
+﻿using Confy.Domain.Notification.Enums;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Confy.Infrastructure.Converters;

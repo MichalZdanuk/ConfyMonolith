@@ -1,4 +1,4 @@
-﻿using Confy.Domain.ConferenceManagement;
+﻿using Confy.Domain.ConferenceManagement.Entities;
 
 namespace Confy.Infrastructure.Configurations.ConferenceManagement;
 public class ConferenceConfiguration

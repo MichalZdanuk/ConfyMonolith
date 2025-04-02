@@ -1,4 +1,4 @@
-﻿using Confy.Domain.Enums;
+﻿using Confy.Domain.Authentication.Enums;
 
 namespace Confy.Application.Commands.Authentication;
 public record CreateUserCommand(string FirstName, string LastName, string Bio, string Email, string Password, UserRole UserRole) : ICommand

@@ -1,6 +1,7 @@
-﻿using Confy.Domain.Authentication.ValueObjects;
+﻿using Confy.Domain.Authentication.Enums;
+using Confy.Domain.Authentication.ValueObjects;
 
-namespace Confy.Domain.Authentication;
+namespace Confy.Domain.Authentication.Entities;
 public class User : Entity
 {
 	public FullName FullName { get; private set; } = default!;

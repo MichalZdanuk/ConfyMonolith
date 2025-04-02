@@ -2,7 +2,7 @@
 using Confy.Domain.ConferenceManagement.ValueObjects;
 using Confy.Shared.Enums;
 
-namespace Confy.Domain.ConferenceManagement;
+namespace Confy.Domain.ConferenceManagement.Entities;
 public class Conference : Aggregate
 {
 	private readonly List<Guid> _lectureIds = new();

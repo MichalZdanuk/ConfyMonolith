@@ -1,5 +1,5 @@
-﻿using Confy.Domain.Authentication;
-using Confy.Domain.ConferenceManagement;
+﻿using Confy.Domain.Authentication.Entities;
+using Confy.Domain.ConferenceManagement.Entities;
 using Confy.Domain.Notification.Entities;
 using Confy.Domain.Registration;
 

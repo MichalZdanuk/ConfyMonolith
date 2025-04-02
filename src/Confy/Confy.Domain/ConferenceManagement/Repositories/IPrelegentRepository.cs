@@ -1,4 +1,6 @@
-﻿namespace Confy.Domain.ConferenceManagement.Repositories;
+﻿using Confy.Domain.ConferenceManagement.Entities;
+
+namespace Confy.Domain.ConferenceManagement.Repositories;
 public interface IPrelegentRepository
 {
 	public Task AddAsync(Prelegent prelegent);

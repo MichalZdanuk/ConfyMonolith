@@ -1,5 +1,5 @@
-﻿using Confy.Domain.Authentication;
-using Confy.Domain.Enums;
+﻿using Confy.Domain.Authentication.Entities;
+using Confy.Domain.Authentication.Enums;
 
 namespace Confy.Application.Services;
 public interface ICustomAuthService

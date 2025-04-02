@@ -1,4 +1,4 @@
-﻿namespace Confy.Domain.Notification.Enum;
+﻿namespace Confy.Domain.Notification.Enums;
 public enum NotificationType
 {
 	Registration,

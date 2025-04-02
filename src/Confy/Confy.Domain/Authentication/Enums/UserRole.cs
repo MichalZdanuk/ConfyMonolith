@@ -1,4 +1,4 @@
-﻿namespace Confy.Domain.Enums;
+﻿namespace Confy.Domain.Authentication.Enums;
 public enum UserRole
 {
 	Attendee = 1,

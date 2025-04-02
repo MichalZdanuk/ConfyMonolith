@@ -1,4 +1,4 @@
-﻿using Confy.Domain.Notification.Enum;
+﻿using Confy.Domain.Notification.Enums;
 
 namespace Confy.Domain.Notification.Entities;
 public class Notification : Entity

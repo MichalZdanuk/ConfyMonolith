@@ -1,4 +1,4 @@
-﻿namespace Confy.Domain.ConferenceManagement;
+﻿namespace Confy.Domain.ConferenceManagement.Entities;
 public class LectureAssignment : Entity
 {
 	public Guid LectureId { get; private set; }

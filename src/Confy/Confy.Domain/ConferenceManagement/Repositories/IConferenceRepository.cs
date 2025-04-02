@@ -1,4 +1,5 @@
-﻿using Confy.Shared.Enums;
+﻿using Confy.Domain.ConferenceManagement.Entities;
+using Confy.Shared.Enums;
 
 namespace Confy.Domain.ConferenceManagement.Repositories;
 public interface IConferenceRepository
