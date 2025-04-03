@@ -33,6 +33,6 @@ public class RegistrationForConferenceCanceledEventHandler(INotificationReposito
 
 		var notificationPayload = notification.MapToPayload(user.Email);
 
-		await notificationSenderService.SendNotification(notificationPayload);
+		await notificationSenderService.SendNotificationAsync(notificationPayload);
 	}
 }

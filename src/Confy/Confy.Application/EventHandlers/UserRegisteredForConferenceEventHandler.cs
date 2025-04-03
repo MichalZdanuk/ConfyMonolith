@@ -33,6 +33,6 @@ public class UserRegisteredForConferenceEventHandler(INotificationRepository not
 
 		var notificationPayload = notification.MapToPayload(user.Email);
 
-		await notificationSenderService.SendNotification(notificationPayload);
+		await notificationSenderService.SendNotificationAsync(notificationPayload);
 	}
 }
