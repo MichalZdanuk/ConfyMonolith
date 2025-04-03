@@ -30,4 +30,11 @@ public class UserRepository : IUserRepository
 	{
 		await _context.Users.AddAsync(user);
 	}
+
+	public async Task<Dictionary<Guid, string>> GetUserEmailsByIdsAsync(IEnumerable<Guid> userIds)
+	{
+		return await _context.Users
+			.Where(u => userIds.Contains(u.Id))
+			.ToDictionaryAsync(u => u.Id, u => u.Email);
+	}
 }

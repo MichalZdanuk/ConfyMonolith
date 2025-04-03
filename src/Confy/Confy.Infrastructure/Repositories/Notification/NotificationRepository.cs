@@ -25,4 +25,9 @@ public class NotificationRepository(ConfyDbContext context)
 	{
 		await context.Notifications.AddAsync(notification);
 	}
+
+	public async Task AddRangeAsync(List<Domain.Notification.Entities.Notification> notifications)
+	{
+		await context.Notifications.AddRangeAsync(notifications);
+	}
 }

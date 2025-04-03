@@ -65,4 +65,12 @@ public class RegistrationRepository(ConfyDbContext context)
 	{
 		return await context.Registrations.CountAsync(r => r.UserId == userId);
 	}
+
+	public async Task<List<Guid>> GetUserIdsByConferenceIdWithActiveRegistrationsAsync(Guid conferenceId)
+	{
+		return await context.Registrations
+			.Where(r => r.ConferenceId == conferenceId && r.RegistrationStatus == RegistrationStatus.Registered)
+			.Select(r => r.UserId)
+			.ToListAsync();
+	}
 }

@@ -1,4 +1,5 @@
-﻿using Confy.Domain.ConferenceManagement.Exceptions;
+﻿using Confy.Domain.ConferenceManagement.Events;
+using Confy.Domain.ConferenceManagement.Exceptions;
 using Confy.Domain.ConferenceManagement.ValueObjects;
 using Confy.Shared.Enums;
 
@@ -59,6 +60,8 @@ public class Conference : Aggregate
 		ConferenceLinks = conferenceLinks;
 		ConferenceDetails = details;
 		Address = address;
+
+		AddDomainEvent(new ConferenceUpdatedEvent(Id, Name));
 	}
 
 	public void AddLecture(Guid lectureId)
