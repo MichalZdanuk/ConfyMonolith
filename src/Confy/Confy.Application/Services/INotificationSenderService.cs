@@ -1,4 +1,6 @@
-﻿namespace Confy.Application.Services;
+﻿using Confy.Domain.Notification.ValueObjects;
+
+namespace Confy.Application.Services;
 public interface INotificationSenderService
 {
 	public Task SendNotification(NotificationPayload notificationPayload);

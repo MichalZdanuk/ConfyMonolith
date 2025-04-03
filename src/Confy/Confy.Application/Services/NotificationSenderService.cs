@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Confy.Domain.Notification.ValueObjects;
+using Microsoft.Extensions.Logging;
 
 namespace Confy.Application.Services;
 public class NotificationSenderService(ILogger<NotificationSenderService> logger)
