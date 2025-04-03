@@ -20,4 +20,9 @@ public class NotificationRepository(ConfyDbContext context)
 	{
 		return await context.Notifications.CountAsync(n => n.UserId == userId);
 	}
+
+	public async Task AddAsync(Domain.Notification.Entities.Notification notification)
+	{
+		await context.Notifications.AddAsync(notification);
+	}
 }

@@ -1,2 +1,2 @@
 ﻿namespace Confy.Domain.Registration.Events;
-public record UserReRegisteredForConferenceEvent(Guid UserId, Guid ConferenceId) : IDomainEvent;
+public record UserReRegisteredForConferenceEvent(Guid UserId, Guid ConferenceId, string ConferenceName) : IDomainEvent;
