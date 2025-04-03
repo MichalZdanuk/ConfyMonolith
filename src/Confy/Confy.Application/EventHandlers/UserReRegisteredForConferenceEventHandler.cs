@@ -15,6 +15,8 @@ public class UserReRegisteredForConferenceEventHandler(INotificationRepository n
 {
 	public async Task Handle(UserReRegisteredForConferenceEvent domainEvent, CancellationToken cancellationToken)
 	{
+		logger.LogInformation("Domain event handled: {domainEvent}", domainEvent.GetType().Name);
+
 		var user = await userRepository.GetByIdAsync(domainEvent.UserId);
 
 		if (user is null)
