@@ -11,12 +11,12 @@ public class UserRepository : IUserRepository
 		_context = context;
 	}
 
-	public async Task<bool> UserExists(string email)
+	public async Task<bool> ExistsAsync(string email)
 	{
 		return await _context.Users.AnyAsync(u => u.Email == email);
 	}
 
-	public async Task<User?> GetByEmail(string email)
+	public async Task<User?> GetByEmailAsync(string email)
 	{
 		return await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
 	}
@@ -26,7 +26,7 @@ public class UserRepository : IUserRepository
 		return await _context.Users.SingleOrDefaultAsync(u => u.Id == id);
 	}
 
-	public async Task AddUser(User user)
+	public async Task AddAsync(User user)
 	{
 		await _context.Users.AddAsync(user);
 	}

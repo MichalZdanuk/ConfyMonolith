@@ -25,7 +25,7 @@ public class CustomAuthService(IUserRepository userRepository,
 		UserRole UserRole,
 		string? Bio = null)
 	{
-		if (await userRepository.UserExists(Email))
+		if (await userRepository.ExistsAsync(Email))
 		{
 			throw new EmailAlreadyTakenException(Email);
 		}
@@ -37,7 +37,7 @@ public class CustomAuthService(IUserRepository userRepository,
 			UserRole,
 			Bio);
 
-		await userRepository.AddUser(user);
+		await userRepository.AddAsync(user);
 
 		if (UserRole == UserRole.Prelegent)
 		{
@@ -49,7 +49,7 @@ public class CustomAuthService(IUserRepository userRepository,
 
 	public async Task<string> Login(string email, string password)
 	{
-		var user = await userRepository.GetByEmail(email);
+		var user = await userRepository.GetByEmailAsync(email);
 		if (user is null || !BCrypt.Net.BCrypt.Verify(password, user.PasswordHash))
 		{
 			throw new InvalidLoginCredentials();
