@@ -87,10 +87,10 @@ These are the **six core use cases** selected for benchmarking with [NBomber](ht
 To run the entire microservices system locally using **Docker**, execute the following commands:
 
 ```bash
-git clone https://github.com/MichalZdanuk/ConfyMicroservices.git
+git clone https://github.com/MichalZdanuk/ConfyMonolith.git
 ```
 ```bash
-cd ConfyMicroservices/src
+cd ConfyMonolith/src
 ```
 ```bash
 docker-compose -f docker-compose.yml -f docker-compose.override.yml up
