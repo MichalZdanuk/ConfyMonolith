@@ -4,6 +4,7 @@ using Confy.Domain.ConferenceManagement.Events;
 using Confy.Domain.Notification.Enums;
 using Confy.Domain.Notification.Repositories;
 using Confy.Domain.Registration.Repositories;
+using Confy.Shared.UnitOfWork;
 using Microsoft.Extensions.Logging;
 
 namespace Confy.Application.EventHandlers;
@@ -12,7 +13,8 @@ public class ConferenceUpdatedEventHandler(INotificationFactory notificationFact
 	INotificationRepository notificationRepository,
 	IUserRepository userRepository,
 	IRegistrationRepository registrationRepository,
-	ILogger<ConferenceUpdatedEventHandler> logger)
+	ILogger<ConferenceUpdatedEventHandler> logger,
+	IUnitOfWork unitOfWork)
 		: INotificationHandler<ConferenceUpdatedEvent>
 {
 	public async Task Handle(ConferenceUpdatedEvent domainEvent, CancellationToken cancellationToken)
@@ -39,6 +41,8 @@ public class ConferenceUpdatedEventHandler(INotificationFactory notificationFact
 				.ToList();
 
 			await notificationSenderService.SendNotificationsAsync(notificationPayloads);
+
+			await unitOfWork.SaveChangesAsync();
 		}
 	}
 }

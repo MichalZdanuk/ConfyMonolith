@@ -3,6 +3,7 @@ using Confy.Application.Factories;
 using Confy.Domain.Authentication.Repositories;
 using Confy.Domain.Notification.Repositories;
 using Confy.Domain.Registration.Events;
+using Confy.Shared.UnitOfWork;
 using Microsoft.Extensions.Logging;
 
 namespace Confy.Application.EventHandlers;
@@ -10,7 +11,8 @@ public class RegistrationForConferenceCanceledEventHandler(INotificationReposito
 	IUserRepository userRepository,
 	INotificationFactory notificationFactory,
 	INotificationSenderService notificationSenderService,
-	ILogger<RegistrationForConferenceCanceledEventHandler> logger)
+	ILogger<RegistrationForConferenceCanceledEventHandler> logger,
+	IUnitOfWork unitOfWork)
 	: INotificationHandler<RegistrationForConferenceCanceledEvent>
 {
 	public async Task Handle(RegistrationForConferenceCanceledEvent domainEvent, CancellationToken cancellationToken)
@@ -34,5 +36,7 @@ public class RegistrationForConferenceCanceledEventHandler(INotificationReposito
 		var notificationPayload = notification.MapToPayload(user.Email);
 
 		await notificationSenderService.SendNotificationAsync(notificationPayload);
+
+		await unitOfWork.SaveChangesAsync();
 	}
 }
