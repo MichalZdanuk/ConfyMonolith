@@ -1,4 +1,5 @@
 ﻿using Confy.Infrastructure.Data;
+using Confy.Infrastructure.Seeding;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -15,6 +16,8 @@ public static class Extensions
 		var context = scope.ServiceProvider.GetRequiredService<ConfyDbContext>();
 
 		context.Database.MigrateAsync().GetAwaiter().GetResult();
+
+		await SeedAsync(context);
 	}
 
 	public static IServiceCollection AddAuthenticationAndAuthorization(this IServiceCollection services, IConfiguration configuration)
@@ -37,5 +40,10 @@ public static class Extensions
 		services.AddAuthorization();
 
 		return services;
+	}
+
+	private static async Task SeedAsync(ConfyDbContext confyDbContext)
+	{
+		await AdminUserSeeder.SeedAdminUserAsync(confyDbContext);
 	}
 }

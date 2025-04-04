@@ -1,6 +1,7 @@
 using Confy.Application.Commands.Authentication;
 using Confy.Application.DTO.Authentication;
 using Confy.Application.Queries.Authentication;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Confy.API.Controllers
 {
@@ -31,6 +32,7 @@ namespace Confy.API.Controllers
 			return Ok(response);
 		}
 
+		[Authorize(Roles = "Admin")]
 		[HttpPost("create")]
 		public async Task<ActionResult<Guid>> CreateUser([FromBody] CreateUserDto dto)
 		{
