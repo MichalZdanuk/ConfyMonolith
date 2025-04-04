@@ -20,6 +20,7 @@ namespace Confy.API.Controllers;
 public class ConferencesController(IMediator mediator)
 	: ControllerBase
 {
+	[Authorize(Roles = "Host")]
 	[HttpPost]
 	public async Task<ActionResult> CreateConference([FromBody] CreateConferenceDto dto)
 	{
@@ -35,6 +36,7 @@ public class ConferencesController(IMediator mediator)
 		return Created(uri, new { Id = command.Id });
 	}
 
+	[Authorize(Roles = "Host")]
 	[HttpPut("{id}")]
 	public async Task<ActionResult> UpdateConference([FromRoute] Guid id, [FromBody] UpdateConferenceDto dto)
 	{
@@ -72,6 +74,7 @@ public class ConferencesController(IMediator mediator)
 		return Ok(result);
 	}
 
+	[Authorize(Roles = "Host")]
 	[HttpPost("{id}/lectures")]
 	public async Task<ActionResult> AddLecture(Guid id, [FromBody] AddLectureDto dto)
 	{

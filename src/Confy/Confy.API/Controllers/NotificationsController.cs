@@ -11,6 +11,7 @@ namespace Confy.API.Controllers;
 public class NotificationController(IMediator mediator)
 	: ControllerBase
 {
+	[Authorize(Roles = "Attendee")]
 	[HttpGet]
 	public async Task<ActionResult<PaginationResult<NotificationDto>>> BrowseMyNotifications([FromQuery] PaginationRequest request)
 	{
