@@ -39,6 +39,8 @@ This monolithic application follows the principles of **Clean Architecture** and
 
 ![monolithArchitecture](https://github.com/user-attachments/assets/068d01fc-889f-4a14-9612-52611de10938)
 
+*High-level architecture of the monolithic system.* 
+
 ---
 
 ## 🔧 Technologies Used
