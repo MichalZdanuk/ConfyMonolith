@@ -82,6 +82,25 @@ These are the **six core use cases** selected for benchmarking with [NBomber](ht
 
 ---
 
+## 🏃 How to Run the Application
+
+To run the entire microservices system locally using **Docker**, execute the following commands:
+
+```bash
+git clone https://github.com/MichalZdanuk/ConfyMicroservices.git
+```
+```bash
+cd ConfyMicroservices/src
+```
+```bash
+docker-compose -f docker-compose.yml -f docker-compose.override.yml up
+```
+
+**Note:**
+- When run manually locally app is available on 5008 (HTTP) and 5058 (HTTPS). When running with Docker: 6008 (HTTP) and 6068 (HTTPS).
+
+---
+
 ## 🔗 Related Projects
 
 👉 Check out the [Microservices version here](https://github.com/MichalZdanuk/ConfyMicroservices) for comparison.
