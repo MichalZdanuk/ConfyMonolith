@@ -1,4 +1,5 @@
-# 🏛️ Confy = Conference Management App – Monolithic Architecture
+# 🏛️ Confy (Conference Management App)
+### Monolithic Architecture
 
 This repository contains the **monolithic version** of a backend application created as part of my master's thesis project focused on **comparing performance between monolithic and microservices architectures**.
 
