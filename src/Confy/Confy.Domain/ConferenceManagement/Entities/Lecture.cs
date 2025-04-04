@@ -1,4 +1,5 @@
-﻿using Confy.Domain.ConferenceManagement.ValueObjects;
+﻿using Confy.Domain.ConferenceManagement.Exceptions;
+using Confy.Domain.ConferenceManagement.ValueObjects;
 
 namespace Confy.Domain.ConferenceManagement.Entities;
 public class Lecture : Aggregate
@@ -15,6 +16,16 @@ public class Lecture : Aggregate
 
 	public static Lecture Create(Guid id, Guid conferenceId, LectureDetails details)
 	{
+		if (details.StartDate <= DateTime.UtcNow)
+		{
+			throw new InvalidLectureDateException(details.StartDate);
+		}
+
+		if (details.StartDate >= details.EndDate)
+		{
+			throw new LectureDatesCollisionException();
+		}
+
 		return new Lecture
 		{
 			Id = id,
@@ -25,6 +36,16 @@ public class Lecture : Aggregate
 
 	public void Update(LectureDetails details)
 	{
+		if (details.StartDate <= DateTime.UtcNow)
+		{
+			throw new InvalidLectureDateException(details.StartDate);
+		}
+
+		if (details.StartDate >= details.EndDate)
+		{
+			throw new LectureDatesCollisionException();
+		}
+
 		LectureDetails = details;
 	}
 
