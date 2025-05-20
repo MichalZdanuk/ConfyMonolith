@@ -14,6 +14,8 @@ services:
       - ASPNETCORE_HTTP_PORTS=8080
       - ASPNETCORE_HTTPS_PORTS=8081
       - ConnectionStrings__Database=Server=confydb;Database=ConfyDb;User Id=sa;Password=HardPassword12345678abc!;Encrypt=False;TrustServerCertificate=True
+      - Logging__LogLevel__Default=Warning
+      - Logging__LogLevel__Microsoft.AspNetCore=Warning
     ports:
       - "6008:8080"
       - "6068:8081"
