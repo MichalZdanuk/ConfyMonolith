@@ -1,10 +1,11 @@
 ﻿using Confy.Application.DTO.ConferenceManagement.CreateConference;
+using Confy.Application.DTO.ConferenceManagement.UpdateConference;
 using Confy.Shared.Enums;
 
 namespace Confy.LoadTests.Utils;
 public static class ConferenceDtoFactory
 {
-	public static CreateConferenceDto CreateTestDto(string name = "TestConf2025")
+	public static CreateConferenceDto PrepareCreateConferenceDto(string name = "TestConf2025")
 	{
 		return new CreateConferenceDto(
 			Name: name,
@@ -25,6 +26,28 @@ public static class ConferenceDtoFactory
 				Country: "Testland",
 				AddressLine: "123 Test Ave",
 				ZipCode: "12345"
+			)
+		);
+	}
+
+	public static UpdateConferenceDto PrepareUpdateConferenceDto()
+	{
+		return new UpdateConferenceDto(
+			ConferenceLanguage: ConferenceLanguage.English,
+			conferenceLinksDto: new UpdateConferenceLinksDto(
+				WebsiteUrl: "https://updatedconf.com",
+				FacebookUrl: "https://facebook.com/updatedconf",
+				InstagramUrl: "https://instagram.com/updatedconf"
+			),
+			conferenceDetailsDto: new UpdateConferenceDetailsDto(
+				Description: "Updated description for the conference.",
+				IsOnline: true
+			),
+			AddressDto: new UpdateAddressDto(
+				City: "Updateville",
+				Country: "Updateland",
+				AddressLine: "456 Update Street",
+				ZipCode: "67890"
 			)
 		);
 	}

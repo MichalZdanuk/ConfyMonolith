@@ -26,7 +26,13 @@ public static class LectureSeeder
 			lecture.AddPrelegent(SeedConstants.PrelegentIds[i % SeedConstants.PrelegentIds.Length]);
 
 			var conference = await context.Conferences.FirstOrDefaultAsync(c => c.Id == conferenceId);
-			conference?.AddLecture(lectureId);
+
+			if (conference is null)
+			{
+				throw new Exception($"Failed to fetch conference with id: {conferenceId}");
+			}
+
+			conference.AddLecture(lectureId);
 
 			await context.Lectures.AddAsync(lecture);
 		}

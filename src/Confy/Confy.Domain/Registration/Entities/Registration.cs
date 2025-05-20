@@ -13,6 +13,7 @@ public class Registration : Aggregate
 
 	private Registration()
 	{
+		Conference = null!;
 	}
 
 	private Registration(Guid userId, Guid conferenceId, Conference conference)

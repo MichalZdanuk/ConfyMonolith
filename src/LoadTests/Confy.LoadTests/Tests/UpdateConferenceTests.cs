@@ -1,5 +1,5 @@
 ﻿namespace Confy.LoadTests.Tests;
-public class CreateConferenceTests
+public class UpdateConferenceTests
 {
 	private const int runCount = 3;
 	private const int simulationTimeSeconds = 5;
@@ -8,32 +8,32 @@ public class CreateConferenceTests
 	private const string rampingConstantMode = "RampingConstant";
 
 	[Fact]
-	public void Create_Conference_ConstantLoad()
+	public void Update_Conference_ConstantLoad()
 	{
 		var scenarioFactory = new ConfyScenarioFactory();
-		string scenarioName = $"create_conference_vu_{virtualUsersCount}_mode_{keepConstantMode}";
+		string scenarioName = $"update_conference_vu_{virtualUsersCount}_mode_{keepConstantMode}";
 
 		var metrics = LoadTestHelper.RunScenarioMultipleTimes(
 			scenarioName,
 			virtualUsersCount,
 			keepConstantMode,
-			httpClient => scenarioFactory.PrepareCreateConferenceScenario(scenarioName, httpClient, Simulation.KeepConstant(virtualUsersCount, TimeSpan.FromSeconds(simulationTimeSeconds))),
+			httpClient => scenarioFactory.PrepareUpdateConferenceScenario(scenarioName, httpClient, Simulation.KeepConstant(virtualUsersCount, TimeSpan.FromSeconds(simulationTimeSeconds))),
 			runCount);
 
 		metrics.Print();
 	}
 
 	[Fact]
-	public void Create_Conference_RampingConstantLoad()
+	public void Update_Conference_RampingConstantLoad()
 	{
 		var scenarioFactory = new ConfyScenarioFactory();
-		string scenarioName = $"create_conference_vu_{virtualUsersCount}_mode_{rampingConstantMode}";
+		string scenarioName = $"update_conference_vu_{virtualUsersCount}_mode_{rampingConstantMode}";
 
 		var metrics = LoadTestHelper.RunScenarioMultipleTimes(
 			scenarioName,
 			virtualUsersCount,
 			keepConstantMode,
-			httpClient => scenarioFactory.PrepareCreateConferenceScenario(scenarioName, httpClient, Simulation.KeepConstant(virtualUsersCount, TimeSpan.FromSeconds(simulationTimeSeconds))),
+			httpClient => scenarioFactory.PrepareUpdateConferenceScenario(scenarioName, httpClient, Simulation.KeepConstant(virtualUsersCount, TimeSpan.FromSeconds(simulationTimeSeconds))),
 			runCount);
 
 		metrics.Print();

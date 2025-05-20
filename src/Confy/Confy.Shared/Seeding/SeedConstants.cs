@@ -1,4 +1,4 @@
-﻿namespace Confy.Infrastructure.Seeding;
+﻿namespace Confy.Shared.Seeding;
 public static class SeedConstants
 {
 	public static readonly Guid[] ConferenceIds =
