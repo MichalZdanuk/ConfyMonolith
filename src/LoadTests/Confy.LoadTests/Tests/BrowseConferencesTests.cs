@@ -1,24 +1,20 @@
 ﻿namespace Confy.LoadTests.Tests;
 public class BrowseConferencesTests
 {
-	private const int runCount = 3;
-	private const int simulationTimeSeconds = 5;
-	private const int virtualUsersCount = 50;
-	private const string keepConstantMode = "KeepConstant";
-	private const string rampingConstantMode = "RampingConstant";
-
 	[Fact]
 	public void Browse_Conferences_ConstantLoad()
 	{
 		var scenarioFactory = new ConfyScenarioFactory();
-		string scenarioName = $"browse_conferences_vu_{virtualUsersCount}_mode_{keepConstantMode}";
+		string scenarioName = $"browse_conferences_vu_{LoadTestSettings.VirtualUsersCount}_mode_{LoadTestSettings.KeepConstantMode}";
 
 		var metrics = LoadTestHelper.RunScenarioMultipleTimes(
 			scenarioName,
-			virtualUsersCount,
-			keepConstantMode,
-			httpClient => scenarioFactory.PrepareBrowseConferencesScenario(scenarioName, httpClient, Simulation.KeepConstant(virtualUsersCount, TimeSpan.FromSeconds(simulationTimeSeconds))),
-			runCount);
+			LoadTestSettings.VirtualUsersCount,
+			LoadTestSettings.KeepConstantMode,
+			httpClient => scenarioFactory.PrepareBrowseConferencesScenario(scenarioName,
+				httpClient,
+				Simulation.KeepConstant(LoadTestSettings.VirtualUsersCount, TimeSpan.FromSeconds(LoadTestSettings.SimulationTimeSeconds))),
+			LoadTestSettings.RunCount);
 
 		metrics.Print();
 	}
@@ -27,14 +23,16 @@ public class BrowseConferencesTests
 	public void Browse_Conferences_RampingConstantLoad()
 	{
 		var scenarioFactory = new ConfyScenarioFactory();
-		string scenarioName = $"browse_conferences_vu_{virtualUsersCount}_mode_{rampingConstantMode}";
+		string scenarioName = $"browse_conferences_vu_{LoadTestSettings.VirtualUsersCount}_mode_{LoadTestSettings.RampingConstantMode}";
 
 		var metrics = LoadTestHelper.RunScenarioMultipleTimes(
 			scenarioName,
-			virtualUsersCount,
-			keepConstantMode,
-			httpClient => scenarioFactory.PrepareBrowseConferencesScenario(scenarioName, httpClient, Simulation.KeepConstant(virtualUsersCount, TimeSpan.FromSeconds(simulationTimeSeconds))),
-			runCount);
+			LoadTestSettings.VirtualUsersCount,
+			LoadTestSettings.KeepConstantMode,
+			httpClient => scenarioFactory.PrepareBrowseConferencesScenario(scenarioName,
+				httpClient,
+				Simulation.KeepConstant(LoadTestSettings.VirtualUsersCount, TimeSpan.FromSeconds(LoadTestSettings.SimulationTimeSeconds))),
+			LoadTestSettings.RunCount);
 
 		metrics.Print();
 	}
