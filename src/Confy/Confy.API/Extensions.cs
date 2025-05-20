@@ -45,6 +45,8 @@ public static class Extensions
 	private static async Task SeedAsync(ConfyDbContext confyDbContext)
 	{
 		await AdminUserSeeder.SeedAdminUserAsync(confyDbContext);
+		await PrelegentSeeder.SeedPrelegentsAsync(confyDbContext);
 		await ConferenceSeeder.SeedConferenceAsync(confyDbContext);
+		await LectureSeeder.SeedLecturesAsync(confyDbContext);
 	}
 }
