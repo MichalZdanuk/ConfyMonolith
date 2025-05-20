@@ -1,7 +1,4 @@
-﻿using Confy.LoadTests.Models;
-using NBomber.Contracts;
-using NBomber.Contracts.Stats;
-using NBomber.CSharp;
+﻿using NBomber.Contracts.Stats;
 
 namespace Confy.LoadTests.Utils;
 public static class LoadTestHelper

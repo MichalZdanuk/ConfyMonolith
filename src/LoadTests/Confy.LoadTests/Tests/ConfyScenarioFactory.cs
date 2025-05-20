@@ -1,10 +1,4 @@
-﻿using NBomber.Contracts;
-using NBomber.CSharp;
-using NBomber.Http.CSharp;
-using System.Text;
-using System.Text.Json;
-
-namespace Confy.LoadTests.Tests;
+﻿namespace Confy.LoadTests.Tests;
 public class ConfyScenarioFactory
 {
 	private const string BaseUrl = "https://localhost:6068";

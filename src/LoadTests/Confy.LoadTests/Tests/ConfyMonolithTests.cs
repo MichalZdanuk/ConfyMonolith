@@ -1,7 +1,4 @@
-﻿using Confy.LoadTests.Utils;
-using NBomber.CSharp;
-
-namespace Confy.LoadTests.Tests;
+﻿namespace Confy.LoadTests.Tests;
 public class ConfyMonolithTests
 {
 	private const int runCount = 3;

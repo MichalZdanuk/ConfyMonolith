@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.Configuration;
-using NBomber.Contracts;
 using NBomber.Contracts.Stats;
 
 namespace Confy.LoadTests.Utils;
