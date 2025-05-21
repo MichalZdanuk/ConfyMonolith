@@ -12,7 +12,7 @@ public class CreateConferenceTests
 			LoadTestSettings.VirtualUsersCount,
 			LoadTestSettings.KeepConstantMode,
 			httpClient => scenarioFactory.PrepareCreateConferenceScenario(scenarioName,
-				httpClient, Simulation.KeepConstant(LoadTestSettings.VirtualUsersCount, TimeSpan.FromSeconds(LoadTestSettings.SimulationTimeSeconds))),
+				httpClient, Simulation.KeepConstant(LoadTestSettings.VirtualUsersCount, TimeSpan.FromSeconds(LoadTestSettings.SimulationDurationSeconds))),
 			LoadTestSettings.RunCount);
 
 		metrics.Print();
@@ -27,10 +27,10 @@ public class CreateConferenceTests
 		var metrics = LoadTestHelper.RunScenarioMultipleTimes(
 			scenarioName,
 			LoadTestSettings.VirtualUsersCount,
-			LoadTestSettings.KeepConstantMode,
+			LoadTestSettings.RampingConstantMode,
 			httpClient => scenarioFactory.PrepareCreateConferenceScenario(scenarioName,
 				httpClient,
-				Simulation.KeepConstant(LoadTestSettings.VirtualUsersCount, TimeSpan.FromSeconds(LoadTestSettings.SimulationTimeSeconds))),
+				Simulation.RampingConstant(LoadTestSettings.VirtualUsersCount, TimeSpan.FromSeconds(LoadTestSettings.SimulationDurationSeconds))),
 			LoadTestSettings.RunCount);
 
 		metrics.Print();
