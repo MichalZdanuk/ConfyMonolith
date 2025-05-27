@@ -7,12 +7,17 @@ public static class PrelegentSeeder
 	{
 		if (context.Prelegents.Any()) return;
 
-		var prelegents = new List<Prelegent>
+		var prelegents = new List<Prelegent>();
+		var ids = SeedConstants.PrelegentIds;
+
+		for (int i = 0; i < ids.Length; i++)
 		{
-			Prelegent.Create(SeedConstants.PrelegentIds[0], "Alice Johnson", "Senior .NET Developer at TechCorp"),
-			Prelegent.Create(SeedConstants.PrelegentIds[1], "Bob Smith", "Cloud Solutions Architect"),
-			Prelegent.Create(SeedConstants.PrelegentIds[2], "Carla Mendes", "Software Engineer and Speaker")
-		};
+			var id = ids[i];
+			string name = $"Speaker {i + 1}";
+			string bio = $"Experienced .NET Professional #{i + 1}";
+
+			prelegents.Add(Prelegent.Create(id, name, bio));
+		}
 
 		await context.Prelegents.AddRangeAsync(prelegents);
 		await context.SaveChangesAsync();

@@ -4,40 +4,46 @@ using Confy.Domain.ConferenceManagement.ValueObjects;
 namespace Confy.Infrastructure.Seeding;
 public static class LectureSeeder
 {
+	private const int LecturesPerConferenceMin = 1;
+	private const int LecturesPerConferenceMax = 5;
+
 	public static async Task SeedLecturesAsync(ConfyDbContext context)
 	{
-		for (int i = 0; i < SeedConstants.LectureIds.Length; i++)
+		var rnd = new Random(SeedConstants.RandomSeed);
+		var lectureIds = SeedConstants.LectureIds.ToList();
+		int lectureIndex = 0;
+
+		foreach (var conferenceId in SeedConstants.ConferenceIds)
 		{
-			var lectureId = SeedConstants.LectureIds[i];
-			var exists = await context.Lectures.AnyAsync(l => l.Id == lectureId);
-			if (exists) continue;
+			int lecturesForConference = rnd.Next(LecturesPerConferenceMin, LecturesPerConferenceMax + 1);
 
-			var conferenceId = SeedConstants.ConferenceIds[i];
-
-			var start = new DateTime(2025, 6, 1 + i, 10, 0, 0);
-			var end = start.AddHours(1);
-
-			var lecture = Lecture.Create(
-				lectureId,
-				conferenceId,
-				LectureDetails.Of($"Modern .NET {i + 1}", start, end)
-			);
-
-			lecture.AddPrelegent(SeedConstants.PrelegentIds[i % SeedConstants.PrelegentIds.Length]);
-
-			var conference = await context.Conferences.FirstOrDefaultAsync(c => c.Id == conferenceId);
-
-			if (conference is null)
+			for (int i = 0; i < lecturesForConference && lectureIndex < lectureIds.Count; i++, lectureIndex++)
 			{
-				throw new Exception($"Failed to fetch conference with id: {conferenceId}");
+				var lectureId = lectureIds[lectureIndex];
+
+				var start = new DateTime(2025, 6, 1).AddDays(lectureIndex);
+				var end = start.AddHours(1);
+
+				var lecture = Lecture.Create(
+					lectureId,
+					conferenceId,
+					LectureDetails.Of($"Modern .NET Talk #{lectureIndex + 1}", start, end)
+				);
+
+				lecture.AddPrelegent(SeedConstants.PrelegentIds[lectureIndex % SeedConstants.PrelegentIds.Length]);
+
+				var conference = await context.Conferences.FirstOrDefaultAsync(c => c.Id == conferenceId);
+				if (conference == null)
+				{
+					throw new Exception($"Conference not found: {conferenceId}");
+				}
+
+				conference.AddLecture(lectureId);
+
+				await context.Lectures.AddAsync(lecture);
 			}
-
-			conference.AddLecture(lectureId);
-
-			await context.Lectures.AddAsync(lecture);
 		}
 
 		await context.SaveChangesAsync();
 	}
 }
-

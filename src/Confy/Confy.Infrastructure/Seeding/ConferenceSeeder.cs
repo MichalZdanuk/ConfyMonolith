@@ -13,7 +13,7 @@ public static class ConferenceSeeder
 			var exists = await context.Conferences.AnyAsync(c => c.Id == id);
 			if (exists) continue;
 
-			var startDate = new DateTime(2025, 6, 1 + i, 9, 0, 0);
+			var startDate = new DateTime(2025, 6, 1).AddDays(i);
 			var endDate = startDate.AddDays(2);
 
 			var conference = Conference.Create(
