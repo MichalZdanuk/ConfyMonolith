@@ -13,7 +13,7 @@ public class ConfyScenarioFactory
 
 	public ScenarioProps PrepareGetConferenceScenario(string scenarioName, HttpClient httpClient, LoadSimulation simulation)
 	{
-		var url = $"{BaseUrl}/conferences/bfa9b907-4ea3-437b-9380-b60639f8bea1";
+		var url = $"{BaseUrl}/conferences/{ConferenceId}";
 
 		return Scenario.Create(scenarioName, async context =>
 		{

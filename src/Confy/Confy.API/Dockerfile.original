@@ -15,7 +15,6 @@ WORKDIR /src
 COPY ["Confy/Confy.API/Confy.API.csproj", "Confy/Confy.API/"]
 COPY ["Confy/Confy.Application/Confy.Application.csproj", "Confy/Confy.Application/"]
 COPY ["Confy/Confy.Domain/Confy.Domain.csproj", "Confy/Confy.Domain/"]
-COPY ["Confy/Confy.Shared/Confy.Shared.csproj", "Confy/Confy.Shared/"]
 COPY ["Confy/Confy.Infrastructure/Confy.Infrastructure.csproj", "Confy/Confy.Infrastructure/"]
 RUN dotnet restore "./Confy/Confy.API/Confy.API.csproj"
 COPY . .
