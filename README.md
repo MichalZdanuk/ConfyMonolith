@@ -25,7 +25,7 @@ All functionality is encapsulated within a **single monolithic .NET Web API appl
 
 This application is part of my thesis exploring:
 
-> **"Comparison of Monolithic Architecture and Microservices-Based Architecture"**
+> **"Comparative Analysis of Monolithic Architecture and Microservices-Based Architecture Using an Example System"**
 
 The application is designed and implemented in two different architectural styles for a direct, hands-on comparison.
 
