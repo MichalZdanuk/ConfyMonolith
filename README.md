@@ -103,6 +103,8 @@ docker-compose -f docker-compose.yml -f docker-compose.override.yml up
 
 👉 Check out the [Microservices version here](https://github.com/MichalZdanuk/ConfyMicroservices) for comparison.
 
+👉 Performance analysis can be found here [Performance analysis](https://github.com/MichalZdanuk/ArchitecturesAnalysis).
+
 ---
 
 ## 📄 License
